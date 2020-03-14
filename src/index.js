@@ -8,9 +8,11 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import manageCart from './reducers/manageCart.js'
+import categoriesReducer from './reducers/categoriesReducer'
 
 const reducer = combineReducers({
-  cart: manageCart
+  cart: manageCart,
+  categories: categoriesReducer
 })
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
 
