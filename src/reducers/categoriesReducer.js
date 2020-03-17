@@ -1,9 +1,9 @@
-const categoriesReducer = (state = {categories: []}, action) => {
+const categoriesReducer = (state = [], action) => {
   switch (action.type) {
     case 'GET_CATEGORIES':
       return {
         ...state,
-        categories: state.categories
+        categories: action.categories
       }
 
     default:
