@@ -1,7 +1,10 @@
 import React from 'react'
 
-export const Men = (props) => {
+ const Men = (props) => {
+   console.log(props)
   return (
-    
+    <div>MEN</div>
   )
 }
+
+export default Men
