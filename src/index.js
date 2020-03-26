@@ -11,7 +11,7 @@ import manageCart from './reducers/manageCart.js'
 import categoriesReducer from './reducers/categoriesReducer'
 
 const reducer = combineReducers({
-  cart: manageCart,
+  manageCart,
   categories: categoriesReducer
 })
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
