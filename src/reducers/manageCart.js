@@ -1,4 +1,4 @@
- const manageCart = (state = { cart: [] }, action) => {
+ const manageCart = (state = {}, action) => {
   switch(action.type) {
     default:
       return state
