@@ -17,7 +17,7 @@ import Categories from './components/Categories';
     console.log(this.props.categories.categories)
     return (
       <div className="App">
-        <Navbar bg="dark" variant="dark">
+        <Navbar bg="light" variant="light">
           <Navbar.Brand>StoreFront</Navbar.Brand>
         </Navbar>
         <Container>
