@@ -7,7 +7,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import NavigationBar from './components/NavigationBar';
 import Home from './components/Home';
-import Categories from './components/Categories';
+import Men from './components/Men'
+
+
 
 
  class App extends Component {
@@ -19,7 +21,13 @@ import Categories from './components/Categories';
     return (
       <div className="App">
       <NavigationBar />
-      <Home  categories={this.props.categories}/>
+      <Router >
+        <Switch>
+          <Route exact path="/" render={()=> <Home categories={this.props.categories} />} />
+          <Route exact path="/men" component={Men} />
+        </Switch>
+      </Router>
+
     </div>
     )
   }
