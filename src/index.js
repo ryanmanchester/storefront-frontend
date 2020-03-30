@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import styled from 'styled-components'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
@@ -11,10 +10,12 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import manageCart from './reducers/manageCart.js'
 import categoriesReducer from './reducers/categoriesReducer'
+import mensItemsReducer from './reducers/mensItemsReducer'
 
 const reducer = combineReducers({
   cart: manageCart,
-  categories: categoriesReducer
+  categories: categoriesReducer,
+  mensItems: mensItemsReducer
 })
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
 

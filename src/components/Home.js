@@ -1,30 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { getCategories } from '../actions/categoryActions';
+import { connect } from 'react-redux';
 import Categories from '../components/Categories';
-import styled from 'styled-components';
-import StoreFrontBanner from '../assets/StoreFrontBanner.jpg';
+import HomeHeader from '../styled-components/HomeHeader';
 
- const Home = ({ categories }) => {
-  return (
-    <Header>
-    <h1>Welcome to StoreFront</h1>
-    <h3>Shop by Department</h3>
-    <Categories categories={categories} />
-    </Header>
 
-  )
+
+  class Home extends Component  {
+
+    componentDidMount(){
+      this.props.getCategories()
+    }
+
+
+   render(){
+     return (
+       <HomeHeader>
+       <h1><strong>Welcome to StoreFront</strong></h1>
+       <h3>Shop by Department</h3>
+       <Categories categories={this.props.categories} />
+       </HomeHeader>
+
+     )
+   }
+
 }
 
+const mapStateToProps = state => {
+  return {
+   categories: state.categories
+  }
+}
 
-const Header = styled.div`
-  background-image: url(${StoreFrontBanner}) ;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: black;
-`
-
-
-export default Home
+export default connect(mapStateToProps, { getCategories })(Home)
