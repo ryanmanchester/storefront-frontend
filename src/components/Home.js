@@ -5,7 +5,9 @@ import StoreFrontBanner from '../assets/StoreFrontBanner.jpg';
 
  const Home = ({ categories }) => {
   return (
-    <Header><h1>Welcome to StoreFront</h1>
+    <Header>
+    <h1>Welcome to StoreFront</h1>
+    <h3>Shop by Department</h3>
     <Categories categories={categories} />
     </Header>
 
