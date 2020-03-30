@@ -4,7 +4,8 @@ import './App.css';
 import { getCategories } from './actions/categoryActions';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Container, Row, Col, Navbar } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
+import NavigationBar from './components/NavigationBar';
 import Home from './components/Home';
 import Categories from './components/Categories';
 
@@ -17,14 +18,9 @@ import Categories from './components/Categories';
     console.log(this.props.categories.categories)
     return (
       <div className="App">
-        <Navbar bg="light" variant="light">
-          <Navbar.Brand>StoreFront</Navbar.Brand>
-        </Navbar>
-        <Container>
-              <Categories categories={this.props.categories} />
-        </Container>
-
-      </div>
+      <NavigationBar />
+      <Home  categories={this.props.categories}/>
+    </div>
     )
   }
 }
