@@ -8,14 +8,16 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import manageCart from './reducers/manageCart.js'
-import categoriesReducer from './reducers/categoriesReducer'
-import mensItemsReducer from './reducers/mensItemsReducer'
+import manageCart from './reducers/manageCart.js';
+import categoriesReducer from './reducers/categoriesReducer';
+import mensItemsReducer from './reducers/mensItemsReducer';
+import womensItemsReducer from './reducers/womensItemsReducer';
 
 const reducer = combineReducers({
   cart: manageCart,
   categories: categoriesReducer,
-  mensItems: mensItemsReducer
+  mensItems: mensItemsReducer,
+  womensItems: womensItemsReducer
 })
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
 

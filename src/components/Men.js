@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Container, Card, Button } from 'react-bootstrap';
+import { Container, Card } from 'react-bootstrap';
+import Button from '../styled-components/Button';
 
 
  const Men = ({ mensItems }) => {
@@ -23,7 +24,7 @@ import { Container, Card, Button } from 'react-bootstrap';
              <Card.Text>
                 {item.description}
              </Card.Text>
-             <Button variant="dark">Add to Cart</Button>
+             <Button>Add to Cart</Button>
            </Card.Body>
            </Card>
         )}
