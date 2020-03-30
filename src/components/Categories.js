@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../styled-components/Button'
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Men from '../components/Men'
 
 
@@ -15,7 +15,7 @@ const Categories = ({ categories }) => {
   } else {
     return (
      <div>{categories.categories.map(category =>
-      <Button  onClick={() => alert(`You clicked ${category.name}`)} key={category.id}>{category.name}</Button>)}
+      <Link to={'/' + category.name}><Button  onClick={() => alert(`You clicked ${category.name}`)} key={category.id}>{category.name}</Button></Link>)}
      </div>
     )
   }

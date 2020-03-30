@@ -16,6 +16,7 @@ import Men from './components/Men'
    componentDidMount = () => {
      this.props.getCategories()
    }
+   
   render(){
     console.log(this.props.categories.categories)
     return (
@@ -24,7 +25,7 @@ import Men from './components/Men'
       <Router >
         <Switch>
           <Route exact path="/" render={()=> <Home categories={this.props.categories} />} />
-          <Route exact path="/men" component={Men} />
+          <Route exact path="/Men" component={Men} />
         </Switch>
       </Router>
 
