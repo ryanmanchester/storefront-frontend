@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import { Container, Card } from 'react-bootstrap';
-import Button from '../styled-components/Button';
+import React from 'react'
+import { Container, Card, Button } from 'react-bootstrap';
+//import Button from '../styled-components/Button';
 
 
  const Men = ({ mensItems }) => {
@@ -20,11 +20,11 @@ import Button from '../styled-components/Button';
             <Card.Img variant="top" src={item.image_url} />
             <Card.Body>
              <Card.Title>{item.name}</Card.Title>
-             <Card.Subtitle>{"$" + item.price}</Card.Subtitle>
+             <Card.Subtitle>{item.sold ? "Sold Out" : `$${item.price}`}</Card.Subtitle>
              <Card.Text>
                 {item.description}
              </Card.Text>
-             <Button>Add to Cart</Button>
+             <Button variant="dark">Add to Cart</Button>
            </Card.Body>
            </Card>
         )}
