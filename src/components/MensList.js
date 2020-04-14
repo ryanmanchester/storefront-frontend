@@ -4,10 +4,11 @@ import { connect } from 'react-redux';
 import Men from '../components/Men';
 
 class MensList extends Component {
-
   componentDidMount(){
     this.props.getMensItems();
   }
+
+  
   render(){
     console.log(this.props.mensItems)
     return(
