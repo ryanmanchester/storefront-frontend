@@ -7,7 +7,6 @@ import HomeHeader from '../styled-components/HomeHeader';
 
 
   class Home extends Component  {
-
     componentDidMount(){
       this.props.getCategories()
     }
@@ -17,7 +16,7 @@ import HomeHeader from '../styled-components/HomeHeader';
      return (
        <HomeHeader>
        <h1><strong>Welcome to StoreFront</strong></h1>
-       <h3>Shop by Department</h3>
+       <h3>- Shop by Department -</h3>
        <Categories categories={this.props.categories} />
        </HomeHeader>
 

@@ -14,7 +14,9 @@ const Categories = ({ categories }) => {
   } else {
     return (
      <div>{categories.categories.map(category =>
-      <Link key={category.id} to={'/' + category.name}><Button>{category.name}</Button></Link>)}
+      <Link key={category.id} to={'/' + category.name.toLowerCase()}>
+        <Button>{category.name}</Button>
+      </Link>)}
      </div>
     )
   }

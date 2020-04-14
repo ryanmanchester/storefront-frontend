@@ -9,10 +9,10 @@ class WomensList extends Component {
     this.props.getWomensItems()
   }
 
-  
+
   render(){
     return (
-      <h1>Womens' Department</h1>
+      <div><Women womensItems={this.props.womensItems} /></div>
     )
   }
 }
