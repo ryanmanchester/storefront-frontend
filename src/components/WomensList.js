@@ -11,15 +11,16 @@ class WomensList extends Component {
 
 
   render(){
+    console.log(this.props.womens)
     return (
-      <div><Women womensItems={this.props.womensItems} /></div>
+      <div><Women womens={this.props.womens} /></div>
     )
   }
 }
 
 const mapStateToProps = state => {
   return {
-    womensItems: state.womensItems
+    womens: state.womens
   }
 }
 
