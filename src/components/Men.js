@@ -4,8 +4,9 @@ import ItemCard from '../components/ItemCard'
 //import Button from '../styled-components/Button';
 
 
- const Men = ({ mensItems }) => {
-   if (mensItems.isLoading && !mensItems.mensItems.count) {
+ const Men = ({ mens }) => {
+   console.log(mens)
+   if (mens.isLoading && !mens.items.count) {
      return (
        <Container>
          <h1>Mens Department</h1>
@@ -16,13 +17,12 @@ import ItemCard from '../components/ItemCard'
      return (
        <Container>
         <h1>Mens Department</h1>
-        {mensItems.mensItems.map(item =>
-          <ItemCard item={item} />
+        {mens.items.map(item =>
+          <ItemCard key={item.id} item={item} />
         )}
        </Container>
      )
    }
-
-}
+ }
 
 export default Men

@@ -8,18 +8,18 @@ class MensList extends Component {
     this.props.getMensItems();
   }
 
-  
+
   render(){
-    console.log(this.props.mensItems)
+    console.log(this.props.mens)
     return(
-        <div><Men mensItems={this.props.mensItems} /></div>
+      <div><Men mens={this.props.mens} /></div>
     )
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    mensItems: state.mensItems
+    mens: state.mens
   }
 }
 

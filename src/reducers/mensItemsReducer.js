@@ -1,15 +1,15 @@
-const mensItemsReducer = (state = {mensItems: [], isLoading: false}, action) => {
+const mensItemsReducer = (state = {items: [], isLoading: false}, action) => {
   switch (action.type) {
     case 'LOADING_MENS_ITEMS':
     return{
       ...state,
-      mensItems: [...state.mensItems],
+      items: [...state.items],
       isLoading: true
     }
     case 'GET_MENS_ITEMS':
     return {
       ...state,
-      mensItems: action.items,
+      items: action.items,
       isLoading: false
     }
     default:

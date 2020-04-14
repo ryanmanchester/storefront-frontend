@@ -15,8 +15,8 @@ import womensItemsReducer from './reducers/womensItemsReducer';
 const reducer = combineReducers({
   cart: manageCart,
   categories: categoriesReducer,
-  mensItems: mensItemsReducer,
-  womensItems: womensItemsReducer
+  mens: mensItemsReducer,
+  womens: womensItemsReducer
 })
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
 
