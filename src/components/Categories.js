@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 
 const Categories = ({ categories }) => {
-  if (categories.isLoading && !categories.categories.length) {
+  if (categories.isLoading && !categories.list.length) {
     return (
       <div>
       <p>Loading...</p>
@@ -13,7 +13,7 @@ const Categories = ({ categories }) => {
     )
   } else {
     return (
-     <div>{categories.categories.map(category =>
+     <div>{categories.list.map(category =>
       <Link key={category.id} to={'/' + category.name.toLowerCase()}>
         <Button>{category.name}</Button>
       </Link>)}
