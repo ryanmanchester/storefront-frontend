@@ -1,15 +1,15 @@
-const categoriesReducer = (state = { categories: [], isLoading: false}, action) => {
+const categoriesReducer = (state = { list: [], isLoading: false}, action) => {
   switch (action.type) {
     case 'LOADING_CATEGORIES':
       return {
         ...state,
-        categories: [...state.categories],
+        list: [...state.list],
         isLoading: true
       }
     case 'GET_CATEGORIES':
       return {
         ...state,
-        categories: action.categories,
+        list: action.categories,
         isLoading: false
       }
 
