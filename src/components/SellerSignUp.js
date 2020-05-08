@@ -3,28 +3,49 @@ import Form from 'react-bootstrap/Form';
 import { Container, Button, Col } from 'react-bootstrap';
 import HomeHeader from '../styled-components/HomeHeader';
 
-const SellerSignUp = () => {
-  return (
-    <HomeHeader>
-    <h1>Welcome to the StoreFront Team!</h1>
+class SellerSignUp extends Component {
+  constructor() {
+    super()
+    this.state = {
+      name: '',
+      password: ''
+    }
+  }
 
-    <h4>Please sign up below</h4>
-      <Form>
-        <Form.Group controlId="formGroupName">
-          <Form.Label>Name</Form.Label>
-          <Form.Control type="text" placeholder="Enter the seller's name" />
-        </Form.Group>
+  handleOnChange = event => {
+    this.setState({
+      ...this.state,
+      [event.target.name]: event.target.value
+    })
+  }
 
-        <Form.Group controlId="formGroupPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Enter password" />
-        </Form.Group>
+  handleOnSubmit = event => {
+    event.preventDefault()
+    console.log(event.target)
+  }
+  render(){
+    return (
+      <HomeHeader>
+      <h1>Join the StoreFront Team</h1>
 
-        <Button  variant="dark" type="submit">Sign Up</Button>
-      </Form>
+      <h4>Please sign up below</h4>
+        <Form onSubmit={this.handleOnSubmit}>
+          <Form.Group controlId="formGroupName">
+            <Form.Label>Name</Form.Label>
+            <Form.Control onChange={this.handleOnChange} name= "name" type="text" placeholder="Enter name" />
+          </Form.Group>
 
-    </HomeHeader>
-  )
+          <Form.Group controlId="formGroupPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control onChange={this.handleOnChange} name="password" type="password" placeholder="Enter password" />
+          </Form.Group>
+
+          <Button  variant="dark" type="submit">Sign Up</Button>
+        </Form>
+
+      </HomeHeader>
+    )
+  }
 }
 
 export default SellerSignUp
