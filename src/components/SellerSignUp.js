@@ -32,7 +32,7 @@ class SellerSignUp extends Component {
         <Form onSubmit={this.handleOnSubmit}>
           <Form.Group controlId="formGroupName">
             <Form.Label>Name</Form.Label>
-            <Form.Control onChange={this.handleOnChange} name= "name" type="text" placeholder="Enter name" />
+            <Form.Control onChange={this.handleOnChange} name="name" type="text" placeholder="Enter name" />
           </Form.Group>
 
           <Form.Group controlId="formGroupPassword">
