@@ -3,21 +3,12 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import manageCart from './reducers/manageCart.js';
-import categoriesReducer from './reducers/categoriesReducer';
-import mensItemsReducer from './reducers/mensItemsReducer';
-import womensItemsReducer from './reducers/womensItemsReducer';
+import reducer from './store.js'
 
-const reducer = combineReducers({
-  cart: manageCart,
-  categories: categoriesReducer,
-  mens: mensItemsReducer,
-  womens: womensItemsReducer
-})
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
 
 
