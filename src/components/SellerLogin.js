@@ -1,9 +1,20 @@
 import React from 'react'
+import { connect } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import { Container, Button, Col } from 'react-bootstrap';
 import HomeHeader from '../styled-components/HomeHeader';
+import { updateLoginForm } from '../actions/loginForm';
 
-const SellerLogin = () => {
+const SellerLogin = ({ loginForm, updateLoginForm }) => {
+
+  const handleOnChange = (event) => {
+    const updatedFormInfo = {
+      ...loginForm,
+      [event.target.name]: event.target.value
+    }
+    updateLoginForm(updatedFormInfo)
+  }
+  
   return (
   <HomeHeader>
     <h1>Welcome Back to StoreFront</h1>
@@ -12,12 +23,12 @@ const SellerLogin = () => {
       <Form >
         <Form.Group controlId="formGroupName">
           <Form.Label>Name</Form.Label>
-          <Form.Control  name="name" type="text" placeholder="Enter name" />
+          <Form.Control onChange={handleOnChange}  name="name" type="text" value={ loginForm.name } placeholder="Enter name" />
         </Form.Group>
 
         <Form.Group controlId="formGroupPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control  name="password" type="password" placeholder="Enter password" />
+          <Form.Control onChange={handleOnChange}  name="password" type="password" value={ loginForm.password } placeholder="Enter password" />
         </Form.Group>
 
         <Button  variant="dark" type="submit">Log In</Button>
@@ -27,4 +38,10 @@ const SellerLogin = () => {
   )
 }
 
-export default SellerLogin
+const mapStateToProps = state => {
+  return {
+    loginForm: state.loginForm
+  }
+}
+
+export default connect(mapStateToProps, { updateLoginForm })(SellerLogin)

@@ -11,7 +11,6 @@ class WomensList extends Component {
 
 
   render(){
-    console.log(this.props.womens)
     return (
       <div><Women womens={this.props.womens} /></div>
     )
