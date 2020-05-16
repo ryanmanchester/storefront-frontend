@@ -8,13 +8,12 @@ import { updateLoginForm } from '../actions/loginForm';
 const SellerLogin = ({ loginForm, updateLoginForm }) => {
 
   const handleOnChange = (event) => {
-    const updatedFormInfo = {
+    updateLoginForm({
       ...loginForm,
       [event.target.name]: event.target.value
-    }
-    updateLoginForm(updatedFormInfo)
+    })
   }
-  
+
   return (
   <HomeHeader>
     <h1>Welcome Back to StoreFront</h1>
