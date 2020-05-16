@@ -4,8 +4,9 @@ import Form from 'react-bootstrap/Form';
 import { Container, Button, Col } from 'react-bootstrap';
 import HomeHeader from '../styled-components/HomeHeader';
 import { updateLoginForm } from '../actions/loginForm';
+import { login } from '../actions/currentSeller';
 
-const SellerLogin = ({ loginForm, updateLoginForm }) => {
+const SellerLogin = ({ login, loginForm, updateLoginForm }) => {
 
   const handleOnChange = (event) => {
     updateLoginForm({
@@ -14,12 +15,18 @@ const SellerLogin = ({ loginForm, updateLoginForm }) => {
     })
   }
 
+  const handleOnSubmit = (event) => {
+    event.preventDefault();
+    login(loginForm);
+
+  }
+
   return (
   <HomeHeader>
     <h1>Welcome Back to StoreFront</h1>
 
     <h4> - Log In Below to Start Selling - </h4>
-      <Form >
+      <Form onSubmit={handleOnSubmit} >
         <Form.Group controlId="formGroupName">
           <Form.Label>Name</Form.Label>
           <Form.Control onChange={handleOnChange}  name="name" type="text" value={ loginForm.name } placeholder="Enter name" />
@@ -43,4 +50,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { updateLoginForm })(SellerLogin)
+export default connect(mapStateToProps, { updateLoginForm, login })(SellerLogin)
