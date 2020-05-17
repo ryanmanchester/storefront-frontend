@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavigationBar from './components/NavigationBar';
 import Home from './components/Home';
@@ -6,8 +7,13 @@ import MensList from './components/MensList';
 import WomensList from './components/WomensList';
 import SellerSignUp from './components/SellerSignUp';
 import SellerLogin from './components/SellerLogin';
+import { getCurrentSeller } from './actions/currentSeller';
 
-export default class App extends Component {
+ class App extends Component {
+
+  componentDidMount() {
+    this.props.getCurrentSeller()
+  }
 
   render(){
     return (
@@ -27,3 +33,5 @@ export default class App extends Component {
     )
   }
 }
+
+export default connect(null, { getCurrentSeller })(App)
