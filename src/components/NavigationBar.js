@@ -1,19 +1,42 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Navbar, Nav } from 'react-bootstrap';
+import { logout } from '../actions/currentSeller';
 
- const NavigationBar = () => {
-  return (
-    <Navbar sticky="top" bg="light" variant="light">
-      <Navbar.Brand>StoreFront</Navbar.Brand>
-      <Navbar.Collapse className="justify-content-end">
-          <Nav.Link  href="/">Home</Nav.Link>
-          <Nav.Link href="/sellers/login">Seller Log In</Nav.Link>
-          <Nav.Link href="/sellers/signup">Become a Seller</Nav.Link>
-          <Nav.Link href="/cart">Cart</Nav.Link>
-      </Navbar.Collapse>
+ const NavigationBar = ( { currentSeller } ) => {
+  if (currentSeller){
+    return (
+      <Navbar sticky="top" bg="light" variant="light">
+        <Navbar.Brand>StoreFront</Navbar.Brand>
+        <Navbar.Collapse className="justify-content-end">
+            <Nav.Link  href="/">Home</Nav.Link>
+            <Nav.Link href="/sellers/logout">Log Out {currentSeller.name}</Nav.Link>
+            <Nav.Link href="/cart">Cart</Nav.Link>
+        </Navbar.Collapse>
 
-    </Navbar>
-  )
+      </Navbar>
+    )
+  } else {
+    return (
+      <Navbar sticky="top" bg="light" variant="light">
+        <Navbar.Brand>StoreFront</Navbar.Brand>
+        <Navbar.Collapse className="justify-content-end">
+            <Nav.Link  href="/">Home</Nav.Link>
+            <Nav.Link href="/sellers/signup">Become a Seller</Nav.Link>
+            <Nav.Link href="/sellers/login">Log In Seller Account</Nav.Link>
+            <Nav.Link href="/cart">Cart</Nav.Link>
+        </Navbar.Collapse>
+
+      </Navbar>
+    )
+  }
+
 }
 
-export default NavigationBar
+const mapStateToProps = state => {
+  return {
+    currentSeller: state.currentSeller
+  }
+}
+
+export default connect(mapStateToProps, { logout })(NavigationBar)

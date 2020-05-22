@@ -5,6 +5,12 @@ export const setCurrentSeller = (seller) => {
   }
 }
 
+export const clearCurrentSeller = () => {
+  return {
+    type: "CLEAR_CURRENT_SELLER"
+  }
+}
+
 export const login = (creds) => {
   console.log('creds are', creds)
   return dispatch => {
@@ -45,6 +51,16 @@ export const getCurrentSeller = () => {
       } else {
         dispatch(setCurrentSeller(seller))
       }
+    })
+  }
+}
+
+export const logout = () => {
+  return dispatch => {
+    dispatch(clearCurrentSeller())
+    return fetch('http://localhost:3000/api/v1/sellers/logout', {
+      credentials: 'include',
+      method: 'DELETE'
     })
   }
 }
