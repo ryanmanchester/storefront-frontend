@@ -7,7 +7,6 @@ import MensList from './components/MensList';
 import WomensList from './components/WomensList';
 import SellerSignUp from './components/SellerSignUp';
 import SellerLogin from './components/SellerLogin';
-import SellerLogout from './components/SellerLogout';
 import { getCurrentSeller } from './actions/currentSeller';
 
  class App extends Component {
@@ -26,7 +25,6 @@ import { getCurrentSeller } from './actions/currentSeller';
           <Route exact path="/" component={Home} />
           <Route exact path="/men" component={MensList} />
           <Route exact path="/women" component={WomensList} />
-          <Route exact path="/sellers/logout" component={SellerLogout} />
           <Route exact path="/sellers/login" component={SellerLogin} />
           <Route exact path="/sellers/signup" component={SellerSignUp} />
         </Switch>

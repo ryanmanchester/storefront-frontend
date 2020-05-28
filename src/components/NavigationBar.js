@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import { Navbar, Nav } from 'react-bootstrap';
 import { logout } from '../actions/currentSeller';
 
- const NavigationBar = ( { currentSeller } ) => {
+ const NavigationBar = ( { currentSeller, logout } ) => {
   if (currentSeller){
     return (
       <Navbar sticky="top" bg="light" variant="light">
         <Navbar.Brand>StoreFront</Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
             <Nav.Link  href="/">Home</Nav.Link>
-            <Nav.Link href="/sellers/logout">Log Out {currentSeller.name}</Nav.Link>
+            <Nav.Link onClick={logout}>Log Out {currentSeller.name}</Nav.Link>
             <Nav.Link href="/cart">Cart</Nav.Link>
         </Navbar.Collapse>
 
