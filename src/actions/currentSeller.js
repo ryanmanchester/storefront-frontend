@@ -45,11 +45,11 @@ export const getCurrentSeller = () => {
 
     })
     .then(resp => resp.json())
-    .then(seller => {
-      if (seller.error) {
-        alert(seller.error)
+    .then(response => {
+      if (response.error) {
+        alert(response.error)
       } else {
-        dispatch(setCurrentSeller(seller))
+        dispatch(setCurrentSeller(response.data))
       }
     })
   }
