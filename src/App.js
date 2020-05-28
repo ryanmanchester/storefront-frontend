@@ -8,6 +8,7 @@ import WomensList from './components/WomensList';
 import SellerSignUp from './components/SellerSignUp';
 import SellerLogin from './components/SellerLogin';
 import { getCurrentSeller } from './actions/currentSeller';
+import CurrentSellerItems from './components/CurrentSellerItems'
 
  class App extends Component {
 
@@ -27,6 +28,7 @@ import { getCurrentSeller } from './actions/currentSeller';
           <Route exact path="/women" component={WomensList} />
           <Route exact path="/sellers/login" component={SellerLogin} />
           <Route exact path="/sellers/signup" component={SellerSignUp} />
+          <Route exact path="/sellers" component={CurrentSellerItems} />
         </Switch>
       </Router>
 
@@ -34,7 +36,6 @@ import { getCurrentSeller } from './actions/currentSeller';
     )
   }
 }
-
 
 
 export default connect(null, { getCurrentSeller })(App)
