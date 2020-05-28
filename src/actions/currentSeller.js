@@ -27,7 +27,7 @@ export const login = (creds) => {
       if (response.error) {
         alert(response.error)
       } else {
-        dispatch(setCurrentSeller(response.data))
+        dispatch(setCurrentSeller(response))
         dispatch({type: "CLEAR_LOGIN_FORM"})
       }
     })
@@ -50,7 +50,7 @@ export const getCurrentSeller = () => {
       if (response.error) {
         alert(response.error)
       } else {
-        dispatch(setCurrentSeller(response.data))
+        dispatch(setCurrentSeller(response))
       }
     })
   }
