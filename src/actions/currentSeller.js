@@ -23,11 +23,12 @@ export const login = (creds) => {
       body: JSON.stringify(creds)
     })
     .then(resp => resp.json())
-    .then(seller => {
-      if (seller.error) {
-        alert(seller.error)
+    .then(response => {
+      if (response.error) {
+        alert(response.error)
       } else {
-        dispatch(setCurrentSeller(seller))
+        dispatch(setCurrentSeller(response.data))
+        dispatch({type: "CLEAR_LOGIN_FORM"})
       }
     })
   }

@@ -10,7 +10,7 @@ import { logout } from '../actions/currentSeller';
         <Navbar.Brand>StoreFront</Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
             <Nav.Link  href="/">Home</Nav.Link>
-            <Nav.Link onClick={logout}>Log Out {currentSeller.attributes.name}</Nav.Link>
+            <Nav.Link onClick={logout}>Log Out {currentSeller.attributes.name} </Nav.Link>
             <Nav.Link href="/cart">Cart</Nav.Link>
         </Navbar.Collapse>
 
