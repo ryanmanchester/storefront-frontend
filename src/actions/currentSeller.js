@@ -12,7 +12,6 @@ export const clearCurrentSeller = () => {
 }
 
 export const login = (creds) => {
-  console.log('creds are', creds)
   return dispatch => {
     return fetch('http://localhost:3000/api/v1/sellers/login', {
       credentials: 'include',
@@ -29,6 +28,31 @@ export const login = (creds) => {
       } else {
         dispatch(setCurrentSeller(response))
         dispatch({type: "CLEAR_LOGIN_FORM"})
+      }
+    })
+  }
+}
+
+export const signup = (creds) => {
+  return dispatch => {
+    const sellerInfo = {
+      seller: creds
+    }
+    return fetch('http://localhost:3000/api/v1/sellers/signup', {
+      credentials: 'include',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(sellerInfo)
+    })
+    .then(resp => resp.json())
+    .then(response => {
+      if (response.error) {
+        alert(response.error)
+      } else {
+        dispatch(setCurrentSeller(response))
+        dispatch({type: "CLEAR_SIGNUP_FORM"})
       }
     })
   }

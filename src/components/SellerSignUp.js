@@ -1,43 +1,39 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import { Container, Button, Col } from 'react-bootstrap';
 import HomeHeader from '../styled-components/HomeHeader';
+import { updateSignupForm } from '../actions/signupForm';
+import { signup } from '../actions/currentSeller';
 
-class SellerSignUp extends Component {
-  constructor() {
-    super()
-    this.state = {
-      name: '',
-      password: ''
-    }
-  }
+const SellerSignUp = ({ signup, signupForm, updateSignupForm }) => {
 
-  handleOnChange = event => {
-    this.setState({
-      ...this.state,
+  const handleOnChange = (event) => {
+    updateSignupForm({
+      ...signupForm,
       [event.target.name]: event.target.value
     })
   }
 
-  handleOnSubmit = event => {
+  const handleOnSubmit = event => {
     event.preventDefault()
-    console.log(event.target)
+    signup(signupForm)
   }
-  render(){
+
     return (
       <HomeHeader>
       <h1>Join the StoreFront Team</h1>
 
       <h4>Please sign up below</h4>
-        <Form onSubmit={this.handleOnSubmit}>
+        <Form onSubmit={handleOnSubmit}>
           <Form.Group controlId="formGroupName">
             <Form.Label>Name</Form.Label>
-            <Form.Control onChange={this.handleOnChange} name="name" type="text" placeholder="Enter name" />
+            <Form.Control onChange={handleOnChange} name="name" type="text" placeholder="Enter name" />
           </Form.Group>
 
           <Form.Group controlId="formGroupPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control onChange={this.handleOnChange} name="password" type="password" placeholder="Enter password" />
+            <Form.Control onChange={handleOnChange} name="password" type="password" placeholder="Enter password" />
           </Form.Group>
 
           <Button  variant="dark" type="submit">Sign Up</Button>
@@ -45,7 +41,12 @@ class SellerSignUp extends Component {
 
       </HomeHeader>
     )
+}
+
+const mapStateToProps = state => {
+  return {
+    signupForm: state.signupForm
   }
 }
 
-export default SellerSignUp
+export default connect(mapStateToProps, { updateSignupForm, signup })(SellerSignUp)

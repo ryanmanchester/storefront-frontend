@@ -6,6 +6,7 @@ import mensItemsReducer from './reducers/mensItemsReducer';
 import womensItemsReducer from './reducers/womensItemsReducer';
 import currentSeller from './reducers/currentSeller';
 import loginForm from './reducers/loginForm';
+import signupForm from './reducers/signupForm';
 
 const reducer = combineReducers({
   cart: manageCart,
@@ -13,7 +14,8 @@ const reducer = combineReducers({
   mens: mensItemsReducer,
   womens: womensItemsReducer,
   currentSeller,
-  loginForm
+  loginForm,
+  signupForm
 })
 
 export default reducer
