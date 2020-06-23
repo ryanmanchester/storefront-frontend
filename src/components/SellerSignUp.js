@@ -28,12 +28,12 @@ const SellerSignUp = ({ signup, signupForm, updateSignupForm }) => {
         <Form onSubmit={handleOnSubmit}>
           <Form.Group controlId="formGroupName">
             <Form.Label>Name</Form.Label>
-            <Form.Control onChange={handleOnChange} name="name" type="text" placeholder="Enter name" />
+            <Form.Control onChange={handleOnChange} name="name" type="text" value={signupForm.name} placeholder="Enter name" />
           </Form.Group>
 
           <Form.Group controlId="formGroupPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control onChange={handleOnChange} name="password" type="password" placeholder="Enter password" />
+            <Form.Control onChange={handleOnChange} name="password" type="password" value={signupForm.password} placeholder="Enter password" />
           </Form.Group>
 
           <Button  variant="dark" type="submit">Sign Up</Button>
