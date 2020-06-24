@@ -34,7 +34,7 @@ export const login = (creds, history) => {
   }
 }
 
-export const signup = (creds) => {
+export const signup = (creds, history) => {
   return dispatch => {
     const sellerInfo = {
       seller: creds
@@ -54,6 +54,7 @@ export const signup = (creds) => {
       } else {
         dispatch(setCurrentSeller(response))
         dispatch({type: "CLEAR_SIGNUP_FORM"})
+        history.push('/sellers')
       }
     })
   }
@@ -81,7 +82,7 @@ export const getCurrentSeller = () => {
   }
 }
 
-export const logout = () => {
+export const logout = (history) => {
   return dispatch => {
     dispatch(clearCurrentSeller())
     return fetch('http://localhost:3000/api/v1/sellers/logout', {
@@ -90,5 +91,6 @@ export const logout = () => {
     })
     .then(resp => resp.json())
     .then(msg => alert(msg.notice))
+    history.push('/')
   }
 }

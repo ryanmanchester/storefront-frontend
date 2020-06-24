@@ -12,7 +12,7 @@ const CurrentSellerItems = ({ currentSeller }) => {
       {currentSeller.included.map(item => <ItemCard key={item.id} item={item.attributes} />)}
       </Container>
     )
-  } else if (currentSeller && currentSeller.included.length === 0) {
+  } else if (currentSeller && currentSeller.included.length === 0 ) {
     return (
       <Container>
         <h1>Welcome Back {currentSeller.data.attributes.name}</h1>
