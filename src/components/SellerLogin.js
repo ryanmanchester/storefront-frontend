@@ -6,7 +6,7 @@ import HomeHeader from '../styled-components/HomeHeader';
 import { updateLoginForm } from '../actions/loginForm';
 import { login } from '../actions/currentSeller';
 
-const SellerLogin = ({ login, loginForm, updateLoginForm }) => {
+const SellerLogin = ({ login, loginForm, updateLoginForm, history }) => {
 
   const handleOnChange = (event) => {
     updateLoginForm({
@@ -17,7 +17,7 @@ const SellerLogin = ({ login, loginForm, updateLoginForm }) => {
 
   const handleOnSubmit = (event) => {
     event.preventDefault();
-    login(loginForm);
+    login(loginForm, history);
 
   }
 

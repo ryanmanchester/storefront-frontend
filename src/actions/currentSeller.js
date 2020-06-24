@@ -11,7 +11,7 @@ export const clearCurrentSeller = () => {
   }
 }
 
-export const login = (creds) => {
+export const login = (creds, history) => {
   return dispatch => {
     return fetch('http://localhost:3000/api/v1/sellers/login', {
       credentials: 'include',
@@ -28,6 +28,7 @@ export const login = (creds) => {
       } else {
         dispatch(setCurrentSeller(response))
         dispatch({type: "CLEAR_LOGIN_FORM"})
+        history.push('/sellers')
       }
     })
   }
@@ -87,5 +88,7 @@ export const logout = () => {
       credentials: 'include',
       method: 'DELETE'
     })
+    .then(resp => resp.json())
+    .then(msg => alert(msg.notice))
   }
 }
