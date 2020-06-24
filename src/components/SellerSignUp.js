@@ -6,7 +6,7 @@ import HomeHeader from '../styled-components/HomeHeader';
 import { updateSignupForm } from '../actions/signupForm';
 import { signup } from '../actions/currentSeller';
 
-const SellerSignUp = ({ signup, signupForm, updateSignupForm }) => {
+const SellerSignUp = ({ signup, signupForm, updateSignupForm, history }) => {
 
   const handleOnChange = (event) => {
     updateSignupForm({
@@ -17,7 +17,7 @@ const SellerSignUp = ({ signup, signupForm, updateSignupForm }) => {
 
   const handleOnSubmit = event => {
     event.preventDefault()
-    signup(signupForm)
+    signup(signupForm, history)
   }
 
     return (
