@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import Form from 'react-bootstrap/Form';
-import { Container, Button, Col } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import HomeHeader from '../styled-components/HomeHeader';
 import { updateSignupForm } from '../actions/signupForm';
 import { signup } from '../actions/currentSeller';
@@ -24,7 +24,7 @@ const SellerSignUp = ({ signup, signupForm, updateSignupForm, history }) => {
       <HomeHeader>
       <h1>Join the StoreFront Team</h1>
 
-      <h4>Please sign up below</h4>
+      <h4>- Sign Up Below and Start Selling -</h4>
         <Form onSubmit={handleOnSubmit}>
           <Form.Group controlId="formGroupName">
             <Form.Label>Name</Form.Label>

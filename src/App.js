@@ -8,7 +8,8 @@ import WomensList from './components/WomensList';
 import SellerSignUp from './components/SellerSignUp';
 import SellerLogin from './components/SellerLogin';
 import { getCurrentSeller } from './actions/currentSeller';
-import CurrentSellerItems from './components/CurrentSellerItems'
+import CurrentSellerItems from './components/CurrentSellerItems';
+import NewItemForm from './components/NewItemForm';
 
  class App extends Component {
 
@@ -17,7 +18,6 @@ import CurrentSellerItems from './components/CurrentSellerItems'
   }
 
   render(){
-    console.log(this.props.currentSeller)
     return (
       <div className="App">
       <NavigationBar />
@@ -29,6 +29,7 @@ import CurrentSellerItems from './components/CurrentSellerItems'
           <Route exact path="/sellers/login" component={SellerLogin} />
           <Route exact path="/sellers/signup" component={SellerSignUp} />
           <Route exact path="/sellers/:id" component={CurrentSellerItems} />
+          <Route exact path="/new-items" component={NewItemForm} />
         </Switch>
       </Router>
     </div>
