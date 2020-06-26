@@ -74,7 +74,7 @@ export const getCurrentSeller = () => {
     .then(resp => resp.json())
     .then(response => {
       if (response.error) {
-        alert(response.error)
+        return response.error
       } else {
         dispatch(setCurrentSeller(response))
       }
@@ -85,12 +85,12 @@ export const getCurrentSeller = () => {
 export const logout = (history) => {
   return dispatch => {
     dispatch(clearCurrentSeller())
+    history.push('/')
     return fetch('http://localhost:3000/api/v1/sellers/logout', {
       credentials: 'include',
       method: 'DELETE'
     })
     .then(resp => resp.json())
     .then(msg => alert(msg.notice))
-    history.push('/')
   }
 }

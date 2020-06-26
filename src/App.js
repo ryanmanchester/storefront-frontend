@@ -21,7 +21,7 @@ import CurrentSellerItems from './components/CurrentSellerItems'
     return (
       <div className="App">
       <NavigationBar />
-      <Router >
+      <Router>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/men" component={MensList} />
@@ -31,7 +31,6 @@ import CurrentSellerItems from './components/CurrentSellerItems'
           <Route exact path="/sellers" component={CurrentSellerItems} />
         </Switch>
       </Router>
-
     </div>
     )
   }
