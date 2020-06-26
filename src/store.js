@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { combineReducers } from 'redux';
 import manageCart from './reducers/manageCart.js';
 import categoriesReducer from './reducers/categoriesReducer';
@@ -7,6 +7,7 @@ import womensItemsReducer from './reducers/womensItemsReducer';
 import currentSeller from './reducers/currentSeller';
 import loginForm from './reducers/loginForm';
 import signupForm from './reducers/signupForm';
+import newItemsForm from './reducers/newItemsForm';
 
 const reducer = combineReducers({
   cart: manageCart,
@@ -15,7 +16,8 @@ const reducer = combineReducers({
   womens: womensItemsReducer,
   currentSeller,
   loginForm,
-  signupForm
+  signupForm,
+  newItemsForm
 })
 
 export default reducer

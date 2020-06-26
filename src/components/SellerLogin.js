@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import Form from 'react-bootstrap/Form';
-import { Container, Button, Col } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import HomeHeader from '../styled-components/HomeHeader';
 import { updateLoginForm } from '../actions/loginForm';
 import { login } from '../actions/currentSeller';
@@ -25,7 +25,7 @@ const SellerLogin = ({ login, loginForm, updateLoginForm, history, match }) => {
   <HomeHeader>
     <h1>Welcome Back to StoreFront</h1>
 
-    <h4> - Log In Below to Start Selling - </h4>
+    <h4> - Please Log In Below - </h4>
       <Form onSubmit={handleOnSubmit} >
         <Form.Group controlId="formGroupName">
           <Form.Label>Name</Form.Label>

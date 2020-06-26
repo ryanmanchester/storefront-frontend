@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Container, Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import ItemCard from '../components/ItemCard'
 import { logout } from '../actions/currentSeller'
@@ -17,7 +18,7 @@ const CurrentSellerItems = ({ logout, currentSeller, history }) => {
       <h2>Here's what you're selling:</h2>
       {currentSeller.included.map(item => <ItemCard key={item.id} item={item.attributes} />)}
       <ButtonGroup>
-        <Button variant="dark">Sell More Items</Button>
+        <Link to="/sellers/new-items"><Button variant="dark">Sell More Items</Button></Link>
         <Button variant="dark" onClick={handleOnClick}>Log Out</Button>
       </ButtonGroup>
       </Container>
@@ -28,7 +29,7 @@ const CurrentSellerItems = ({ logout, currentSeller, history }) => {
         <h1>Welcome Back {currentSeller.data.attributes.name}</h1>
         <h2>Looks like you're not selling anything right now</h2>
           <ButtonGroup>
-            <Button variant="dark">Start Selling Items</Button>
+              <Link to="/new-items"><Button variant="dark">Start Selling Items</Button></Link>
             <Button variant="dark" onClick={handleOnClick}>Log Out</Button>
           </ButtonGroup>
       </Container>
