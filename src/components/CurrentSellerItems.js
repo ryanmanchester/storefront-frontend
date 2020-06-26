@@ -1,15 +1,25 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Container } from 'react-bootstrap'
+import { Container, Button } from 'react-bootstrap'
+import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import ItemCard from '../components/ItemCard'
+import { logout } from '../actions/currentSeller'
 
-const CurrentSellerItems = ({ currentSeller }) => {
+const CurrentSellerItems = ({ logout, currentSeller, history }) => {
+  const handleOnClick = () => {
+    logout(history)
+  }
+
   if (currentSeller && currentSeller.included.length > 0){
     return (
       <Container>
       <h1>Welcome Back {currentSeller.data.attributes.name}</h1>
       <h2>Here's what you're selling:</h2>
       {currentSeller.included.map(item => <ItemCard key={item.id} item={item.attributes} />)}
+      <ButtonGroup>
+        <Button variant="dark">Sell More Items</Button>
+        <Button variant="dark" onClick={handleOnClick}>Log Out</Button>
+      </ButtonGroup>
       </Container>
     )
   } else if (currentSeller && currentSeller.included.length === 0 ) {
@@ -17,6 +27,10 @@ const CurrentSellerItems = ({ currentSeller }) => {
       <Container>
         <h1>Welcome Back {currentSeller.data.attributes.name}</h1>
         <h2>Looks like you're not selling anything right now</h2>
+          <ButtonGroup>
+            <Button variant="dark">Sell More Items</Button>
+            <Button variant="dark" onClick={handleOnClick}>Log Out</Button>
+          </ButtonGroup>
       </Container>
     )
   } else {
@@ -32,4 +46,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(CurrentSellerItems)
+export default connect(mapStateToProps, { logout })(CurrentSellerItems)
