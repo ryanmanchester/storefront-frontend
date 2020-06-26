@@ -6,7 +6,7 @@ import HomeHeader from '../styled-components/HomeHeader';
 import { updateLoginForm } from '../actions/loginForm';
 import { login } from '../actions/currentSeller';
 
-const SellerLogin = ({ login, loginForm, updateLoginForm, history }) => {
+const SellerLogin = ({ login, loginForm, updateLoginForm, history, match }) => {
 
   const handleOnChange = (event) => {
     updateLoginForm({
@@ -17,7 +17,7 @@ const SellerLogin = ({ login, loginForm, updateLoginForm, history }) => {
 
   const handleOnSubmit = (event) => {
     event.preventDefault();
-    login(loginForm, history);
+    login(loginForm, history, match);
 
   }
 
@@ -38,6 +38,7 @@ const SellerLogin = ({ login, loginForm, updateLoginForm, history }) => {
         </Form.Group>
 
         <Button  variant="dark" type="submit">Log In</Button>
+        <p>New to StoreFront? <a href="/sellers/signup">Sign Up</a></p>
       </Form>
 
     </HomeHeader>

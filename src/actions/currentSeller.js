@@ -11,7 +11,7 @@ export const clearCurrentSeller = () => {
   }
 }
 
-export const login = (creds, history) => {
+export const login = (creds, history, match ) => {
   return dispatch => {
     return fetch('http://localhost:3000/api/v1/sellers/login', {
       credentials: 'include',
@@ -28,7 +28,7 @@ export const login = (creds, history) => {
       } else {
         dispatch(setCurrentSeller(response))
         dispatch({type: "CLEAR_LOGIN_FORM"})
-        history.push('/sellers')
+        history.push(`/sellers/${response.data.id}`)
       }
     })
   }
@@ -54,7 +54,7 @@ export const signup = (creds, history) => {
       } else {
         dispatch(setCurrentSeller(response))
         dispatch({type: "CLEAR_SIGNUP_FORM"})
-        history.push('/sellers')
+        history.push(`/sellers/${response.data.id}`)
       }
     })
   }
