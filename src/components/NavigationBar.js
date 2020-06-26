@@ -10,7 +10,7 @@ import { logout } from '../actions/currentSeller';
         <Navbar.Brand>StoreFront</Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
             <Nav.Link  href="/">Home</Nav.Link>
-            <Nav.Link onClick={logout}>Log Out {currentSeller.data.attributes.name} </Nav.Link>
+            <Nav.Link href="/sellers">{currentSeller.data.attributes.name}s Shop</Nav.Link>
             <Nav.Link href="/cart">Cart</Nav.Link>
         </Navbar.Collapse>
 
@@ -22,8 +22,7 @@ import { logout } from '../actions/currentSeller';
         <Navbar.Brand>StoreFront</Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
             <Nav.Link  href="/">Home</Nav.Link>
-            <Nav.Link href="/sellers/signup">Become a Seller</Nav.Link>
-            <Nav.Link href="/sellers/login">Log In Seller Account</Nav.Link>
+            <Nav.Link href="/sellers/signup">Seller Portal</Nav.Link>
             <Nav.Link href="/cart">Cart</Nav.Link>
         </Navbar.Collapse>
 

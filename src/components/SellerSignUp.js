@@ -37,6 +37,7 @@ const SellerSignUp = ({ signup, signupForm, updateSignupForm, history }) => {
           </Form.Group>
 
           <Button  variant="dark" type="submit">Sign Up</Button>
+          <p>Already a seller? <a href="/sellers/login">Log In</a></p>
         </Form>
 
       </HomeHeader>

@@ -28,7 +28,7 @@ const CurrentSellerItems = ({ logout, currentSeller, history }) => {
         <h1>Welcome Back {currentSeller.data.attributes.name}</h1>
         <h2>Looks like you're not selling anything right now</h2>
           <ButtonGroup>
-            <Button variant="dark">Sell More Items</Button>
+            <Button variant="dark">Start Selling Items</Button>
             <Button variant="dark" onClick={handleOnClick}>Log Out</Button>
           </ButtonGroup>
       </Container>

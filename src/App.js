@@ -28,7 +28,7 @@ import CurrentSellerItems from './components/CurrentSellerItems'
           <Route exact path="/women" component={WomensList} />
           <Route exact path="/sellers/login" component={SellerLogin} />
           <Route exact path="/sellers/signup" component={SellerSignUp} />
-          <Route exact path="/sellers" component={CurrentSellerItems} />
+          <Route exact path="/sellers/:id" component={CurrentSellerItems} />
         </Switch>
       </Router>
     </div>
