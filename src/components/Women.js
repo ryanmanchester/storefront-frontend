@@ -15,9 +15,10 @@ const Women = ({ womens }) => {
         <Container>
           <h1>Womens Department</h1>
           {womens.items.map(item =>
-            <ItemCard key={item.id} item={item} />
+             <ItemCard key={item.id} item={item} />
           )}
         </Container>
+
       )
     }
   }

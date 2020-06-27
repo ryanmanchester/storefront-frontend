@@ -18,7 +18,7 @@ const CurrentSellerItems = ({ logout, currentSeller, history }) => {
       <h2>Here's what you're selling:</h2>
       {currentSeller.included.map(item => <ItemCard key={item.id} item={item.attributes} />)}
       <ButtonGroup>
-        <Link to="/sellers/new-items"><Button variant="dark">Sell More Items</Button></Link>
+        <Link to="/new-items"><Button variant="dark">Sell More Items</Button></Link>
         <Button variant="dark" onClick={handleOnClick}>Log Out</Button>
       </ButtonGroup>
       </Container>

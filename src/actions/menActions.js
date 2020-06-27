@@ -6,12 +6,6 @@ export const setMensItems = items => {
   }
 }
 
-export const addMensItem = item => {
-  return {
-    type: "ADD_MENS_ITEM",
-    item
-  }
-}
 
 //async action creators
 
