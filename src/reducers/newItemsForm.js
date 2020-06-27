@@ -1,8 +1,8 @@
 const initialState = {
   name:'',
   description:'',
-  size:'',
-  price: null,
+  itemSize:'',
+  price:'',
   imageUrl:'',
   category:''
 }
