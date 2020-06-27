@@ -1,4 +1,20 @@
-export const newItems = (itemData) => {
+//sync action creators
+export const addMensItem = item => {
+  return {
+    type: "ADD_MENS_ITEM",
+    item
+  }
+}
+
+export const addWomensItem = item => {
+  return {
+    type: "ADD_WOMENS_ITEM",
+    item
+  }
+}
+
+//async action creators
+export const newItems = (itemData, history) => {
   console.log(itemData.category)
   return dispatch => {
     const sendItem = {
@@ -18,7 +34,19 @@ export const newItems = (itemData) => {
       body: JSON.stringify(sendItem)
     })
     .then(resp => resp.json())
-    .then(console.log)
+    .then(item => {
+      if (item.category_id === 1) {
+        dispatch(addMensItem(item))
+        dispatch({type: "CLEAR_NEW_ITEMS_FORM"})
+        history.push(`/sellers/${item.seller_id}`)
+      } else if (item.category_id === 2) {
+        dispatch(addWomensItem(item))
+        dispatch({type: "CLEAR_NEW_ITEMS_FORM"})
+        history.push(`/sellers/${item.seller_id}`)
+      } else{
+        alert(item.error)
+      }
+    })
     .catch(console.log)
 
   }

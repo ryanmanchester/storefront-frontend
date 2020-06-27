@@ -5,7 +5,7 @@ import { Container, Button, Row} from 'react-bootstrap';
 import { updateNewItemsForm } from '../actions/newItemsForm';
 import { newItems } from '../actions/newItems';
 
-const NewItemForm = ( { newItemsForm, updateNewItemsForm, newItems, userId }) => {
+const NewItemForm = ( { newItemsForm, updateNewItemsForm, newItems, history }) => {
 
   const handleOnChange = (event) => {
     updateNewItemsForm({
@@ -16,7 +16,7 @@ const NewItemForm = ( { newItemsForm, updateNewItemsForm, newItems, userId }) =>
 
   const handleOnSubmit = (event) => {
     event.preventDefault()
-    newItems(newItemsForm);
+    newItems(newItemsForm, history);
   }
 
   return (

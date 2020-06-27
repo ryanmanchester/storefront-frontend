@@ -7,12 +7,7 @@ export const setWomensItems = items => {
   }
 }
 
-export const newWomensItem = item => {
-  return {
-    type: "ADD_WOMENS_ITEM",
-    item
-  }
-}
+
 
 //async action creators
 
