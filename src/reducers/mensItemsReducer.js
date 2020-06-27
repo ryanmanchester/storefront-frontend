@@ -12,6 +12,9 @@ const mensItemsReducer = (state = {items: [], isLoading: false}, action) => {
       items: action.items,
       isLoading: false
     }
+    case 'ADD_MENS_ITEM':
+    return state.items.concat(action.items)
+    
     default:
     return state;
 

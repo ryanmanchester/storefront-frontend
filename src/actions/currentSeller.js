@@ -1,3 +1,4 @@
+//synch action creators
 export const setCurrentSeller = (seller) => {
   return {
     type: "SET_CURRENT_SELLER",
@@ -11,7 +12,8 @@ export const clearCurrentSeller = () => {
   }
 }
 
-export const login = (creds, history, match ) => {
+//async action creators
+export const login = (creds, history) => {
   return dispatch => {
     return fetch('http://localhost:3000/api/v1/sellers/login', {
       credentials: 'include',
