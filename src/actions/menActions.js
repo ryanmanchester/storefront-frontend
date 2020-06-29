@@ -14,6 +14,6 @@ export const getMensItems = () => {
     dispatch({type: 'LOADING_MENS_ITEMS'})
     fetch('http://localhost:3000/api/v1/categories/1/items')
     .then(resp => resp.json())
-    .then(items => dispatch(setMensItems(items)))
+    .then(items => dispatch(setMensItems(items.data)))
   }
 }
