@@ -1,7 +1,7 @@
 import React from'react'
-import { Card, Button } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 
-const ItemCard = ({item}) => {
+const SellerItemCard = ({item}) => {
   return (
     <Card  key={item.id}  style={{ width: '18rem' }}>
       <Card.Img variant="top" src={item.image_url} style={ {width: '100%',
@@ -13,11 +13,12 @@ const ItemCard = ({item}) => {
        <Card.Text>
           {item.description}
        </Card.Text>
-       <Button variant="dark">Add to Cart</Button>
+       <Card.Link href="#">Edit Item</Card.Link>
+       <Card.Link href="#">Delete Item</Card.Link>
      </Card.Body>
      </Card>
 
   )
 }
 
-export default ItemCard
+export default SellerItemCard
