@@ -14,8 +14,8 @@ const Categories = ({ categories }) => {
   } else {
     return (
      <div>{categories.list.map(category =>
-      <Link key={category.id} to={'/' + category.name.toLowerCase()}>
-        <Button>{category.name}</Button>
+      <Link key={category.id} to={'/' + category.attributes.name.toLowerCase()}>
+        <Button>{category.attributes.name}</Button>
       </Link>)}
      </div>
     )
