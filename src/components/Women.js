@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container } from 'react-bootstrap';
+import { Container, CardColumns } from 'react-bootstrap';
 import ItemCard from '../components/ItemCard'
 
 const Women = ({ womens }) => {
@@ -14,9 +14,13 @@ const Women = ({ womens }) => {
       return (
         <Container>
           <h1>Womens Department</h1>
+          <div>
+            <CardColumns>
           {womens.items.map(item =>
              <ItemCard key={item.id} item={item} />
           )}
+            </CardColumns>
+          </div>
         </Container>
 
       )

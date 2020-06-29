@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Row } from 'react-bootstrap';
+import { Container, CardColumns } from 'react-bootstrap';
 import ItemCard from '../components/ItemCard'
 //import Button from '../styled-components/Button';
 
@@ -17,9 +17,13 @@ import ItemCard from '../components/ItemCard'
      return (
        <Container>
         <h1>Mens Department</h1>
+        <div>
+        <CardColumns>
         {mens.items.map(item =>
-          <Row><ItemCard key={item.id} item={item} /></Row>
+          <ItemCard key={item.id} item={item} />
         )}
+      </CardColumns>
+        </div>
        </Container>
      )
    }
