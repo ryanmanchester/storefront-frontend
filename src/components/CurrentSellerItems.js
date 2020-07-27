@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import SellerItemCard from '../components/SellerItemCard'
 import { logout } from '../actions/currentSeller'
 
-const CurrentSellerItems = ({ logout, currentSeller, history }) => {
+const CurrentSellerItems = ({ logout, currentSeller, history, match }) => {
   const handleOnClick = () => {
     logout(history)
   }
@@ -18,7 +18,7 @@ const CurrentSellerItems = ({ logout, currentSeller, history }) => {
       <div>
         <CardColumns>
       {currentSeller.included.map(item =>
-        <SellerItemCard key={item.id} item={item.attributes} />)}
+        <SellerItemCard key={item.id} id={item.id} item={item.attributes} match={match} />)}
           </CardColumns>
       </div>
       <ButtonGroup>

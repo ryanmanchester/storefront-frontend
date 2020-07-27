@@ -38,11 +38,11 @@ export const newItems = (itemData, history) => {
       if (item.category_id === 1) {
         dispatch(addMensItem(item))
         dispatch({type: "CLEAR_NEW_ITEMS_FORM"})
-        history.push(`/sellers/${item.seller_id}`)
+        history.push(`/sellers/${item.seller_id}/items/${item.id}`)
       } else if (item.category_id === 2) {
         dispatch(addWomensItem(item))
         dispatch({type: "CLEAR_NEW_ITEMS_FORM"})
-        history.push(`/sellers/${item.seller_id}`)
+        history.push(`/sellers/${item.seller_id}/items/${item.id}`)
       } else{
         alert(item.error)
       }
