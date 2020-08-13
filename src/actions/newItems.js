@@ -1,17 +1,11 @@
 //sync action creators
-export const addMensItem = item => {
+export const addNewItem = item => {
   return {
-    type: "ADD_MENS_ITEM",
+    type: "ADD_NEW_ITEM",
     item
   }
 }
 
-export const addWomensItem = item => {
-  return {
-    type: "ADD_WOMENS_ITEM",
-    item
-  }
-}
 
 //async action creators
 export const newItems = (itemData, history) => {
@@ -35,17 +29,10 @@ export const newItems = (itemData, history) => {
     })
     .then(resp => resp.json())
     .then(item => {
-      if (item.category_id === 1) {
-        dispatch(addMensItem(item))
+        dispatch(addNewItem(item))
         dispatch({type: "CLEAR_NEW_ITEMS_FORM"})
         history.push(`/sellers/${item.seller_id}/items/${item.id}`)
-      } else if (item.category_id === 2) {
-        dispatch(addWomensItem(item))
-        dispatch({type: "CLEAR_NEW_ITEMS_FORM"})
-        history.push(`/sellers/${item.seller_id}/items/${item.id}`)
-      } else{
-        alert(item.error)
-      }
+
     })
     .catch(console.log)
 

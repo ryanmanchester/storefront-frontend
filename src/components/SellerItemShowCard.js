@@ -1,12 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Card, Container } from 'react-bootstrap';
 
-const SellerItemShowCard = ({items, match}) => {
+const SellerItemShowCard = ({items, match, currentSeller, newItem }) => {
 console.log(items)
-if (items) {
+console.log(newItem)
+if (items && newItem.item) {
   const currentItem = items.find(item => item.id === match.params.id)
-  console.log(currentItem)
   return (
     <Container style={ {width: "36rem"} }>
     <h1>{currentItem.attributes.name}</h1>
@@ -19,21 +18,23 @@ if (items) {
        <Card.Subtitle>{currentItem.attributes.sold ? "Sold Out" : `$${currentItem.attributes.price}`}</Card.Subtitle>
        <Card.Link href="#">Edit Item</Card.Link>
        <Card.Link href="#">Delete Item</Card.Link>
+       <Card.Link href={`/sellers/${currentSeller.id}/items`}>Back to {currentSeller.data.attributes.name}s shop</Card.Link>
      </Card.Body>
      </Card>
     </Container>
   )
-} else {
-  return ("Loading...")
+} else if (newItem.length) {
+  return (<h1>New Item Block</h1>)
+}
+else {
+  console.log(newItem)
+  return("Loading...")
 }
 
 
+
 }
 
-const mapStateToProps = state => {
-  return {
-    items: state.currentSeller.included
-  }
-}
 
-export default connect(mapStateToProps)(SellerItemShowCard)
+
+export default SellerItemShowCard

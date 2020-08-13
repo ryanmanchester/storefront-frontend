@@ -30,7 +30,7 @@ export const login = (creds, history) => {
       } else {
         dispatch(setCurrentSeller(response))
         dispatch({type: "CLEAR_LOGIN_FORM"})
-        history.push(`/sellers/${response.data.id}`)
+        history.push(`/sellers/${response.data.id}/items`)
       }
     })
   }
@@ -56,7 +56,7 @@ export const signup = (creds, history) => {
       } else {
         dispatch(setCurrentSeller(response))
         dispatch({type: "CLEAR_SIGNUP_FORM"})
-        history.push(`/sellers/${response.data.id}`)
+        history.push(`/sellers/${response.data.id}/items`)
       }
     })
   }
