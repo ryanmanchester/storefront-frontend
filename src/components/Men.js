@@ -16,7 +16,7 @@ import ItemCard from '../components/ItemCard'
    } else {
      return (
        <Container>
-        <h1>Mens Department</h1>
+        <h1>Men's Department</h1>
         <div>
         <CardColumns>
         {mens.items.map(item =>

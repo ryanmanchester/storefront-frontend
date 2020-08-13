@@ -13,7 +13,7 @@ const Women = ({ womens }) => {
     )} else {
       return (
         <Container>
-          <h1>Womens Department</h1>
+          <h1>Women's Department</h1>
           <div>
             <CardColumns>
           {womens.items.map(item =>

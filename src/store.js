@@ -8,6 +8,7 @@ import currentSeller from './reducers/currentSeller';
 import loginForm from './reducers/loginForm';
 import signupForm from './reducers/signupForm';
 import newItemsForm from './reducers/newItemsForm';
+import newItem from './reducers/newItem';
 
 const reducer = combineReducers({
   cart: manageCart,
@@ -17,7 +18,8 @@ const reducer = combineReducers({
   currentSeller,
   loginForm,
   signupForm,
-  newItemsForm
+  newItemsForm,
+  newItem
 })
 
 export default reducer

@@ -30,7 +30,13 @@ import NewItemForm from './components/NewItemForm';
           <Route exact path="/sellers/login" component={SellerLogin} />
           <Route exact path="/sellers/signup" component={SellerSignUp} />
           <Route exact path="/sellers/:id/items" component={CurrentSellerItems} />
-          <Route exact path="/sellers/:id/items/:id" component={SellerItemShowCard} />
+          <Route exact path="/sellers/:id/items/:id" render={ (props) => {
+              return <SellerItemShowCard {...props}
+                       currentSeller={this.props.currentSeller}
+                       items={this.props.items}
+                       newItem={this.props.newItem} />
+            }
+          }/>
           <Route exact path="/new-items" component={NewItemForm} />
 
         </Switch>
@@ -42,7 +48,9 @@ import NewItemForm from './components/NewItemForm';
 
 const mapStateToProps = state => {
   return ({
-    currentSeller: state.currentSeller
+    currentSeller: state.currentSeller,
+    items: state.currentSeller.included,
+    newItem: state.newItem
   })
 }
 
