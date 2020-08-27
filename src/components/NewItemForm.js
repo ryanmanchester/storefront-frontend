@@ -5,7 +5,7 @@ import { Container, Button, Row} from 'react-bootstrap';
 import { updateNewItemsForm } from '../actions/newItemsForm';
 import { newItems } from '../actions/newItems';
 
-const NewItemForm = ( { newItemsForm, updateNewItemsForm, newItems, history }) => {
+const NewItemForm = ( { newItemsForm, updateNewItemsForm, handleOnSubmit }) => {
 
   const handleOnChange = (event) => {
     updateNewItemsForm({
@@ -14,10 +14,6 @@ const NewItemForm = ( { newItemsForm, updateNewItemsForm, newItems, history }) =
     })
   }
 
-  const handleOnSubmit = (event) => {
-    event.preventDefault()
-    newItems(newItemsForm, history);
-  }
 
   return (
     <Container>
@@ -74,5 +70,4 @@ const mapStateToProps = state => {
   }
 }
 
-
-export default connect(mapStateToProps, {updateNewItemsForm, newItems })(NewItemForm)
+export default connect(mapStateToProps, { updateNewItemsForm })(NewItemForm)
