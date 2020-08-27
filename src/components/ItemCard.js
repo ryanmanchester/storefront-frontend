@@ -10,9 +10,6 @@ const ItemCard = ({item}) => {
       <Card.Body>
        <Card.Title>{item.attributes.name}</Card.Title>
        <Card.Subtitle>{item.attributes.old ? "Sold Out" : `$${item.attributes.price}`}</Card.Subtitle>
-       <Card.Text>
-          {item.attributes.description}
-       </Card.Text>
        <Button variant="dark">Add to Cart</Button>
      </Card.Body>
      </Card>
