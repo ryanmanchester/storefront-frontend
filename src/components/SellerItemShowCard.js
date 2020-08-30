@@ -14,9 +14,9 @@ const SellerItemShowCard = ({items, match, currentSeller, newItem }) => {
         <Card.Body>
          <Card.Title>{currentItem.attributes.description}</Card.Title>
          <Card.Subtitle>{currentItem.attributes.sold ? "Sold Out" : `$${currentItem.attributes.price}`}</Card.Subtitle>
-         <Card.Link href="#">Edit Item</Card.Link>
+         <Card.Link href={`/sellers/${currentSeller.data.id}/items/${currentItem.id}/edit`}>Edit Item</Card.Link>
          <Card.Link href="#">Delete Item</Card.Link>
-         <Card.Link href={`/sellers/${currentSeller.id}/items`}>Back to {currentSeller.data.attributes.name}s shop</Card.Link>
+         <Card.Link href={`/sellers/${currentSeller.data.id}/items`}>Back to {currentSeller.data.attributes.name}s shop</Card.Link>
        </Card.Body>
        </Card>
       </Container>
@@ -35,7 +35,7 @@ const SellerItemShowCard = ({items, match, currentSeller, newItem }) => {
            <Card.Subtitle>{currentNewItem.sold ? "Sold Out" : `$${currentNewItem.price}`}</Card.Subtitle>
            <Card.Link href="#">Edit Item</Card.Link>
            <Card.Link href="#">Delete Item</Card.Link>
-           <Card.Link href={`/sellers/${currentSeller.id}/items`}>Back to {currentSeller.data.attributes.name}s shop</Card.Link>
+           <Card.Link href={`/sellers/${currentSeller.data.id}/items`}>Back to {currentSeller.data.attributes.name}s shop</Card.Link>
          </Card.Body>
          </Card>
         </Container>
