@@ -12,6 +12,7 @@ import { getCurrentSeller } from './actions/currentSeller';
 import CurrentSellerItems from './components/CurrentSellerItems';
 import NewItemForm from './components/NewItemForm';
 import NewItemsFormWrapper from './components/NewItemsFormWrapper';
+import EditItemFormWrapper from './components/EditItemFormWrapper';
 
  class App extends Component {
 
@@ -40,7 +41,7 @@ import NewItemsFormWrapper from './components/NewItemsFormWrapper';
           }/>
         <Route exact path="/new-items" component={NewItemsFormWrapper} />
           <Route exact path="/sellers/:id/items/:id/edit" render={ props => {
-              return <NewItemForm {...props} items={this.props.items} />
+              return <EditItemFormWrapper {...props} currentSeller={this.props.currentSeller} items={this.props.items} />
             }} />
 
         </Switch>

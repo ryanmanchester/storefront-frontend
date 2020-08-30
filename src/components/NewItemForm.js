@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form';
 import { connect } from 'react-redux';
 import { Container, Button, Row} from 'react-bootstrap';
 import { updateNewItemsForm } from '../actions/newItemsForm';
-import { newItems } from '../actions/newItems';
+
 
 const NewItemForm = ( { newItemsForm, updateNewItemsForm, handleOnSubmit }) => {
 
