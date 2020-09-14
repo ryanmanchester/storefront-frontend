@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
 import NewItemForm from './NewItemForm'
 import { connect } from 'react-redux';
+import { setItemFormForEdit } from '../actions/newItemsForm'
 import { updateItem } from '../actions/newItems';
 
 class EditItemFormWrapper extends Component {
 
+   componentDidMount = () => {
+     this.props.setItemFormForEdit(this.props.editItem)
+   }
+
    handleOnSubmit = (event) => {
+     const { newItemsForm, updateItem, editItem, history } = this.props
     event.preventDefault()
-    updateItem(this.props.newItemsForm);
+    updateItem({...newItemsForm, itemId: editItem.id}, history);
   }
 
   render() {
-    const { items, history, match } = this.props
-    if (items) {
-      const editItem = items.find(item => item.id === match.params.id)
-      console.log(editItem.attributes)
+    if (this.props.items) {
       return (
-        <NewItemForm history={history} handleOnSubmit={this.handleOnSubmit} editItem={editItem} />
+        <NewItemForm history={this.props.history} handleOnSubmit={this.handleOnSubmit}  />
         )
     } else {
       return ("Loading...")
@@ -32,4 +35,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, { updateItem })(EditItemFormWrapper)
+export default connect(mapStateToProps, { updateItem, setItemFormForEdit })(EditItemFormWrapper)

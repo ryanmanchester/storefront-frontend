@@ -10,7 +10,6 @@ import SellerLogin from './components/SellerLogin';
 import SellerItemShowCard from './components/SellerItemShowCard';
 import { getCurrentSeller } from './actions/currentSeller';
 import CurrentSellerItems from './components/CurrentSellerItems';
-import NewItemForm from './components/NewItemForm';
 import NewItemsFormWrapper from './components/NewItemsFormWrapper';
 import EditItemFormWrapper from './components/EditItemFormWrapper';
 
@@ -32,6 +31,7 @@ import EditItemFormWrapper from './components/EditItemFormWrapper';
           <Route exact path="/sellers/login" component={SellerLogin} />
           <Route exact path="/sellers/signup" component={SellerSignUp} />
           <Route exact path="/sellers/:id/items" component={CurrentSellerItems} />
+          <Route exact path="/sellers/:id/items/new" component={NewItemsFormWrapper} />
           <Route exact path="/sellers/:id/items/:id" render={ (props) => {
               return <SellerItemShowCard {...props}
                        currentSeller={this.props.currentSeller}
@@ -39,9 +39,17 @@ import EditItemFormWrapper from './components/EditItemFormWrapper';
                        newItem={this.props.newItem} />
             }
           }/>
-        <Route exact path="/new-items" component={NewItemsFormWrapper} />
           <Route exact path="/sellers/:id/items/:id/edit" render={ props => {
-              return <EditItemFormWrapper {...props} currentSeller={this.props.currentSeller} items={this.props.items} />
+              if (this.props.items){
+                  const editItem = this.props.items.find(item => item.id === props.match.params.id)
+                  return <EditItemFormWrapper {...props}
+                    currentSeller={this.props.currentSeller}
+                    items={this.props.items}
+                    editItem={editItem}
+                    />
+              }
+
+
             }} />
 
         </Switch>

@@ -22,7 +22,7 @@ const CurrentSellerItems = ({ logout, currentSeller, history, match }) => {
           </CardColumns>
       </div>
       <ButtonGroup>
-        <Link to="/new-items"><Button variant="light">Sell More Items</Button></Link>
+        <Link to={`/sellers/${currentSeller.data.id}/items/new`}><Button variant="light">Sell More Items</Button></Link>
         <Button variant="light" onClick={handleOnClick}>Log Out</Button>
       </ButtonGroup>
       </Container>
@@ -33,7 +33,7 @@ const CurrentSellerItems = ({ logout, currentSeller, history, match }) => {
         <h1>Welcome Back {currentSeller.data.attributes.name}</h1>
         <h2>Looks like you're not selling anything right now</h2>
           <ButtonGroup>
-              <Link to="/new-items"><Button variant="light">Start Selling Items</Button></Link>
+              <Link to={`/sellers/${currentSeller.data.id}/items/new`}><Button variant="light">Start Selling Items</Button></Link>
             <Button variant="light" onClick={handleOnClick}>Log Out</Button>
           </ButtonGroup>
       </Container>
