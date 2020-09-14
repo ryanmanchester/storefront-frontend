@@ -6,7 +6,7 @@ export const addNewItem = item => {
   }
 }
 
-export const updateItem = item => {
+export const updateItemSuccess = item => {
   return {
     type: "UPDATE_ITEM",
     item
@@ -45,7 +45,7 @@ export const newItems = (itemData, history) => {
 
   }
 }
-export const updateItems = (itemData, history) => {
+export const updateItem = (itemData, history) => {
   return dispatch => {
     const sendItem = {
       name: itemData.name,
@@ -55,7 +55,8 @@ export const updateItems = (itemData, history) => {
       price: itemData.price,
       image_url: itemData.imageUrl
     }
-    fetch(`http://localhost:3000/api/v1/categories/${itemData.category}/items/${itemData.id}`, {
+    console.log(itemData.itemId)
+    fetch(`http://localhost:3000/api/v1/categories/${itemData.category}/items/${itemData.itemId}`, {
       credentials: 'include',
       method: 'PATCH',
       headers: {
@@ -65,7 +66,7 @@ export const updateItems = (itemData, history) => {
     })
     .then(resp => resp.json())
     .then(item => {
-        dispatch(updateItem(item))
+        dispatch(updateItemSuccess(item))
         dispatch({type: "CLEAR_NEW_ITEMS_FORM"})
         history.push(`/sellers/${item.seller_id}/items/${item.id}`)
 

@@ -13,7 +13,8 @@ export default (state = initialState, action) => {
       return action.formData
     case "CLEAR_NEW_ITEMS_FORM":
       return initialState
-
+    case "SET_ITEM_FORM_FOR_EDIT":
+      return action.itemFormData
     default:
       return state
 

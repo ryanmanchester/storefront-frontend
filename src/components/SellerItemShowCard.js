@@ -13,7 +13,10 @@ const SellerItemShowCard = ({items, match, currentSeller, newItem }) => {
                                                             objectFit: 'cover'} } />
         <Card.Body>
          <Card.Title>{currentItem.attributes.description}</Card.Title>
-         <Card.Subtitle>{currentItem.attributes.sold ? "Sold Out" : `$${currentItem.attributes.price}`}</Card.Subtitle>
+         <Card.Subtitle>Size: {currentItem.attributes.size}</Card.Subtitle>
+         <Card.Text>
+           {currentItem.attributes.sold ? "Sold Out" : `Price: $${currentItem.attributes.price}`}
+         </Card.Text>
          <Card.Link href={`/sellers/${currentSeller.data.id}/items/${currentItem.id}/edit`}>Edit Item</Card.Link>
          <Card.Link href="#">Delete Item</Card.Link>
          <Card.Link href={`/sellers/${currentSeller.data.id}/items`}>Back to {currentSeller.data.attributes.name}s shop</Card.Link>
