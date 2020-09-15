@@ -12,8 +12,6 @@ const womensItemsReducer = (state = {items: [], isLoading: false}, action) => {
       items: action.items,
       isLoading: false
     }
-    case 'ADD_WOMENS_ITEM':
-    return state.items.concat(action.item)
 
     default:
     return state;

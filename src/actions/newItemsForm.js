@@ -13,9 +13,7 @@ export const setItemFormForEdit = item => {
     itemSize: item.attributes.size,
     imageUrl: item.attributes.image_url,
     category: item.relationships.category.data.id
-
   }
-  console.log(itemFormData)
   return {
     type: "SET_ITEM_FORM_FOR_EDIT",
     itemFormData

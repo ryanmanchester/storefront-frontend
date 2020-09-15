@@ -5,7 +5,7 @@ import { Container, Button, Row} from 'react-bootstrap';
 import { updateNewItemsForm } from '../actions/newItemsForm';
 
 
-const NewItemForm = ( { newItemsForm, updateNewItemsForm, handleOnSubmit }) => {
+const NewItemForm = ( { newItemsForm, updateNewItemsForm, handleOnSubmit, editMode }) => {
 
   const handleOnChange = (event) => {
     updateNewItemsForm({
@@ -58,7 +58,7 @@ const NewItemForm = ( { newItemsForm, updateNewItemsForm, handleOnSubmit }) => {
         <option value="3">Accessories</option>
       </Form.Control>
       </Form.Group>
-        <Button block variant="dark" type="submit">Sell New Item</Button>
+        <Button block variant="dark" type="submit">{editMode ? "Update Item" : "Sell Item"}</Button>
     </Form>
     </Container>
   )
