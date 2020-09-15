@@ -1,3 +1,4 @@
+import { clearItemForm } from './newItemsForm'
 //sync action creators
 export const addNewItem = item => {
   return {
@@ -36,9 +37,14 @@ export const newItems = (itemData, history) => {
     })
     .then(resp => resp.json())
     .then(item => {
+      if(item.error) {
+        alert(item.error)
+      } else {
         dispatch(addNewItem(item))
-        dispatch({type: "CLEAR_NEW_ITEMS_FORM"})
+        dispatch(clearItemForm())
         history.push(`/sellers/${item.seller_id}/items/${item.id}`)
+      }
+
 
     })
     .catch(console.log)
@@ -65,9 +71,13 @@ export const updateItem = (itemData, history) => {
     })
     .then(resp => resp.json())
     .then(item => {
-        dispatch(updateItemSuccess(item))
-        dispatch({type: "CLEAR_NEW_ITEMS_FORM"})
-        history.push(`/sellers/${item.seller_id}/items/${item.id}`)
+        if (item.error) {
+          alert(item.error)
+        } else {
+          dispatch(updateItemSuccess(item))
+          history.push(`/sellers/${item.seller_id}/items/${item.id}`)
+        }
+
 
     })
     .catch(console.log)

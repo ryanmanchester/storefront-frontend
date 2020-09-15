@@ -20,6 +20,12 @@ export const setItemFormForEdit = item => {
   }
 }
 
+export const clearItemForm = () => {
+  return {
+    type: "CLEAR_NEW_ITEMS_FORM"
+  }
+}
+
 
 
 //async action creators
