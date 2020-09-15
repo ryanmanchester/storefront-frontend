@@ -19,7 +19,7 @@ class EditItemFormWrapper extends Component {
   render() {
     if (this.props.items) {
       return (
-        <NewItemForm history={this.props.history} handleOnSubmit={this.handleOnSubmit}  />
+        <NewItemForm editMode handleOnSubmit={this.handleOnSubmit}  />
         )
     } else {
       return ("Loading...")

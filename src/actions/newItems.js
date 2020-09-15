@@ -55,7 +55,6 @@ export const updateItem = (itemData, history) => {
       price: itemData.price,
       image_url: itemData.imageUrl
     }
-    console.log(itemData.itemId)
     fetch(`http://localhost:3000/api/v1/categories/${itemData.category}/items/${itemData.itemId}`, {
       credentials: 'include',
       method: 'PATCH',

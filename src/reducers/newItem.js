@@ -3,8 +3,7 @@ const newItem = (state = {item: []}, action ) => {
     case 'ADD_NEW_ITEM':
       return state.item.concat(action.item)
     case 'UPDATE_ITEM':
-      console.log(action)
-      return state
+      return state.item.concat(action.item)
     default:
       return state
 
