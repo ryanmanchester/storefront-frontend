@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
 import NewItemForm from './NewItemForm'
 import { connect } from 'react-redux';
-import { setItemFormForEdit } from '../actions/newItemsForm'
+import { setItemFormForEdit, clearItemForm } from '../actions/newItemsForm'
 import { updateItem } from '../actions/newItems';
 
 class EditItemFormWrapper extends Component {
 
    componentDidMount = () => {
      this.props.setItemFormForEdit(this.props.editItem)
+   }
+
+   componentDidUpdate = (prevProps) => {
+     !prevProps.editItem && this.props.setItemFormForEdit(this.props.editItem)
+   }
+
+   componentWillUnmount = () => {
+     this.props.clearItemForm()
    }
 
    handleOnSubmit = (event) => {
@@ -35,4 +43,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, { updateItem, setItemFormForEdit })(EditItemFormWrapper)
+export default connect(mapStateToProps, { updateItem, setItemFormForEdit, clearItemForm })(EditItemFormWrapper)
