@@ -1,9 +1,13 @@
 import React from 'react';
-import { Card, Container } from 'react-bootstrap';
+import { Card, Container, Button } from 'react-bootstrap';
+import { deleteItem } from '../actions/newItems'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom';
 
-const SellerItemShowCard = ({items, match, currentSeller, newItem }) => {
+const SellerItemShowCard = ({items, match, history, currentSeller, newItem, deleteItem }) => {
   if (items && newItem.item) {
     const currentItem = items.find(item => item.id === match.params.id)
+    console.log(currentItem)
     return (
       <Container style={ {width: "36rem"} }>
       <h1>{currentItem.attributes.name}</h1>
@@ -17,9 +21,19 @@ const SellerItemShowCard = ({items, match, currentSeller, newItem }) => {
          <Card.Text>
            {currentItem.attributes.sold ? "Sold Out" : `Price: $${currentItem.attributes.price}`}
          </Card.Text>
-         <Card.Link href={`/sellers/${currentSeller.data.id}/items/${currentItem.id}/edit`}>Edit Item</Card.Link>
-         <Card.Link href="#">Delete Item</Card.Link>
-         <Card.Link href={`/sellers/${currentSeller.data.id}/items`}>Back to {currentSeller.data.attributes.name}s shop</Card.Link>
+         <Link to={`/sellers/${currentSeller.data.id}/items/${currentItem.id}/edit`}>
+           <Button variant="secondary">
+             Edit Item
+           </Button>
+         </Link>
+         <Card.Link href="#">
+           <Button onClick={() => deleteItem(currentItem, history)} variant="warning">
+             Delete Item
+           </Button>
+         </Card.Link>
+         <Link to={`/sellers/${currentSeller.data.id}/items`}>
+           Back to {currentSeller.data.attributes.name}s shop
+         </Link>
        </Card.Body>
        </Card>
       </Container>
@@ -36,9 +50,19 @@ const SellerItemShowCard = ({items, match, currentSeller, newItem }) => {
           <Card.Body>
            <Card.Title>{currentNewItem.description}</Card.Title>
            <Card.Subtitle>{currentNewItem.sold ? "Sold Out" : `$${currentNewItem.price}`}</Card.Subtitle>
-           <Card.Link href="#">Edit Item</Card.Link>
-           <Card.Link href="#">Delete Item</Card.Link>
-           <Card.Link href={`/sellers/${currentSeller.data.id}/items`}>Back to {currentSeller.data.attributes.name}s shop</Card.Link>
+             <Card.Link href={`/sellers/${currentSeller.data.id}/items/${currentNewItem.id}/edit`}>
+               <Button variant="secondary">
+                 Edit Item
+               </Button>
+             </Card.Link>
+             <Card.Link href="#">
+               <Button onClick={() => alert("Are you sure?")} variant="warning">
+                 Delete Item
+               </Button>
+             </Card.Link>
+           <Card.Link href={`/sellers/${currentSeller.data.id}/items`}>
+             Back to {currentSeller.data.attributes.name}s shop
+           </Card.Link>
          </Card.Body>
          </Card>
         </Container>
@@ -48,4 +72,4 @@ const SellerItemShowCard = ({items, match, currentSeller, newItem }) => {
     }
   }
 
-export default SellerItemShowCard
+export default connect(null, { deleteItem })(SellerItemShowCard)
