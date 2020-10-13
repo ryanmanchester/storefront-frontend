@@ -1,4 +1,5 @@
 import { clearItemForm } from './newItemsForm'
+
 //sync action creators
 export const addNewItem = item => {
   return {
@@ -11,6 +12,15 @@ export const updateItemSuccess = item => {
   return {
     type: "UPDATE_ITEM",
     item
+  }
+}
+
+export const deleteItemSuccess = itemId => {
+    console.log("item id from delete success ", itemId)
+  return {
+
+    type: "DELETE_ITEM",
+    itemId
   }
 }
 
@@ -82,5 +92,31 @@ export const updateItem = (itemData, history) => {
     })
     .catch(console.log)
 
+  }
+}
+
+export const deleteItem = (itemData, history) => {
+  return dispatch => {
+    fetch(`http://localhost:3000/api/v1/categories/${itemData.relationships.category.data.id}/items/${itemData.id}`, {
+      credentials: 'include',
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then( resp => resp.json())
+    .then(msg => {
+      if (msg.error){
+        alert(msg.error)
+      } else{
+        console.log("item data from fetch", itemData)
+        console.log("item id from fetch request is ", itemData.id)
+        history.push(`/seller/3/items`)
+        dispatch(deleteItemSuccess(itemData.id))
+        alert(msg)
+      }
+
+      }
+    )
   }
 }

@@ -1,5 +1,6 @@
 import React from'react'
 import { Card } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const SellerItemCard = ({id, item, match}) => {
   return (
@@ -8,7 +9,7 @@ const SellerItemCard = ({id, item, match}) => {
                                                             height: '18rem',
                                                             objectFit: 'cover'} } />
       <Card.Body>
-       <Card.Title><Card.Link href={`/sellers/${match.params.id}/items/${id}`}>{item.name}</Card.Link></Card.Title>
+       <Card.Title><Link to={`/sellers/${match.params.id}/items/${id}`}>{item.name}</Link></Card.Title>
        <Card.Subtitle>{item.sold ? "Sold Out" : `$${item.price}`}</Card.Subtitle>
      </Card.Body>
      </Card>
