@@ -32,13 +32,16 @@ import EditItemFormWrapper from './components/EditItemFormWrapper';
           <Route exact path="/sellers/signup" component={SellerSignUp} />
           <Route exact path="/sellers/:id/items" component={CurrentSellerItems} />
           <Route exact path="/sellers/:id/items/new" component={NewItemsFormWrapper} />
-          <Route exact path="/sellers/:id/items/:id" render={ (props) => {
+          <Route exact path="/sellers/:id/items/:id" render={ props => {
+            if (this.props.items){
+              const viewItem = this.props.items.find(item => item.id.toString() === props.match.params.id)
               return <SellerItemShowCard {...props}
                        currentSeller={this.props.currentSeller}
-                       items={this.props.items}
-                       newItem={this.props.newItem} />
-            }
-          }/>
+                      itemsList={this.props.items}
+                      viewItem={viewItem} />
+            }}}
+            />
+
           <Route exact path="/sellers/:id/items/:id/edit" render={ props => {
               if (this.props.items){
                   const editItem = this.props.items.find(item => item.id === props.match.params.id)
@@ -63,7 +66,6 @@ const mapStateToProps = state => {
   return ({
     currentSeller: state.currentSeller,
     items: state.currentSeller.included,
-    newItem: state.newItem
   })
 }
 

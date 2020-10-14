@@ -6,10 +6,21 @@ export default (state = initialState, action) => {
       return action.seller
     case "CLEAR_CURRENT_SELLER":
       return initialState
+    case 'ADD_NEW_ITEM':
+      const newItem = state.included.concat(action.item)
+        return {
+          ...state,
+          included: newItem
+        }
+    case 'UPDATE_ITEM':
+      console.log("action from update item is", action.item)
+      const editItem = state.included.concat(action.item)
+      return {
+        ...state,
+        included: editItem
+      }
     case "DELETE_ITEM":
-    console.log("state from current user reducer ", state)
-    console.log("action from current user reducer ", action)
-    const items = state.included.filter(item =>  item.id !== action.itemId)
+      const items = state.included.filter(item =>  item.id !== action.itemId)
       return {
         ...state,
         included: items
