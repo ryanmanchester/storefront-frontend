@@ -27,7 +27,6 @@ export const deleteItemSuccess = itemId => {
 
 //async action creators
 export const newItems = (itemData, history) => {
-  console.log(itemData.category)
   return dispatch => {
     const sendItem = {
       name: itemData.name,
@@ -111,9 +110,9 @@ export const deleteItem = (itemData, history) => {
       } else{
         console.log("item data from fetch", itemData)
         console.log("item id from fetch request is ", itemData.id)
-        history.push(`/seller/3/items`)
+        history.push(`/sellers/${itemData.relationships.seller.data.id}/items`)
         dispatch(deleteItemSuccess(itemData.id))
-        alert(msg)
+        alert(msg.message)
       }
 
       }
