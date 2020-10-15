@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, NavLink, HashRouter } from 'react-router-dom';
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav, Button } from 'react-bootstrap';
 import { logout } from '../actions/currentSeller';
 
  const NavigationBar = ( { currentSeller, logout } ) => {
@@ -11,9 +11,8 @@ import { logout } from '../actions/currentSeller';
       <Navbar sticky="top" bg="light" variant="light">
         <Navbar.Brand>StoreFront</Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
-            <NavLink to="/">Home</NavLink>
-            <NavLink to={`/sellers/${currentSeller.data.id}/items`}>{currentSeller.data.attributes.name}s Shop</NavLink>
-            <NavLink to="/cart">Cart</NavLink>
+            <NavLink to="/"><Button variant="light">Home</Button></NavLink>
+            <NavLink to={`/sellers/${currentSeller.data.id}/items`}><Button variant="light">{currentSeller.data.attributes.name}s Shop</Button></NavLink>
         </Navbar.Collapse>
 
       </Navbar>
@@ -23,9 +22,9 @@ import { logout } from '../actions/currentSeller';
       <Navbar sticky="top" bg="light" variant="light">
         <Navbar.Brand>StoreFront</Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
-            <Nav.Link  href="/">Home</Nav.Link>
-            <Nav.Link href="/sellers/signup">Seller Portal</Nav.Link>
-            <Nav.Link href="/cart">Cart</Nav.Link>
+            <NavLink  to="/"><Button variant="light">Home</Button></NavLink>
+            <NavLink to="/sellers/signup"><Button variant="light">Seller Portal</Button></NavLink>
+            <NavLink to="/cart"><Button variant="light">Cart</Button></NavLink>
         </Navbar.Collapse>
 
       </Navbar>

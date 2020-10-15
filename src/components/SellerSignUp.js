@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import HomeHeader from '../styled-components/HomeHeader';
 import { updateSignupForm } from '../actions/signupForm';
 import { signup } from '../actions/currentSeller';
@@ -37,7 +38,7 @@ const SellerSignUp = ({ signup, signupForm, updateSignupForm, history }) => {
           </Form.Group>
 
           <Button  variant="dark" type="submit">Sign Up</Button>
-          <p>Already a seller? <a href="/sellers/login">Log In</a></p>
+          <p>Already a seller? <Link to="/sellers/login">Log In</Link></p>
         </Form>
 
       </HomeHeader>

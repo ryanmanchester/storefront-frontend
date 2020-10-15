@@ -49,9 +49,10 @@ export const newItems = (itemData, history) => {
       if(item.error) {
         alert(item.error)
       } else {
-        dispatch(addNewItem(item))
+        const newItem =  item.data[0]
+        dispatch(addNewItem(newItem))
         dispatch(clearItemForm())
-        history.push(`/sellers/${item.seller_id}/items/${item.id}`)
+        history.push(`/sellers/${newItem.attributes.seller_id}/items/${newItem.id}`)
       }
 
 
@@ -83,8 +84,10 @@ export const updateItem = (itemData, history) => {
         if (item.error) {
           alert(item.error)
         } else {
-          dispatch(updateItemSuccess(item))
-          history.push(`/sellers/${item.seller_id}/items/${item.id}`)
+          const newItem =  item.data[0]
+          dispatch(addNewItem(newItem))
+          dispatch(clearItemForm())
+          history.push(`/sellers/${newItem.attributes.seller_id}/items/${newItem.id}`)
         }
 
 

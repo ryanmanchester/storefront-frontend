@@ -34,7 +34,7 @@ import EditItemFormWrapper from './components/EditItemFormWrapper';
           <Route exact path="/sellers/:id/items/new" component={NewItemsFormWrapper} />
           <Route exact path="/sellers/:id/items/:id" render={ props => {
             if (this.props.items){
-              const viewItem = this.props.items.find(item => item.id.toString() === props.match.params.id)
+              const viewItem = this.props.items.find(item => item.id === props.match.params.id)
               return <SellerItemShowCard {...props}
                        currentSeller={this.props.currentSeller}
                       itemsList={this.props.items}
