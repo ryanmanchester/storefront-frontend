@@ -22,7 +22,7 @@ import EditItemFormWrapper from './components/EditItemFormWrapper';
   render(){
     return (
       <div className="App">
-      <NavigationBar />
+      <NavigationBar history={this.props.history} />
 
         <Switch>
           <Route exact path="/" component={Home} />

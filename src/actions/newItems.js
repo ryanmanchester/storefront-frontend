@@ -16,7 +16,6 @@ export const updateItemSuccess = item => {
 }
 
 export const deleteItemSuccess = itemId => {
-    console.log("item id from delete success ", itemId)
   return {
 
     type: "DELETE_ITEM",
@@ -53,6 +52,7 @@ export const newItems = (itemData, history) => {
         dispatch(addNewItem(newItem))
         dispatch(clearItemForm())
         history.push(`/sellers/${newItem.attributes.seller_id}/items/${newItem.id}`)
+        alert(`Now selling ${newItem.name}`)
       }
 
 
@@ -88,6 +88,7 @@ export const updateItem = (itemData, history) => {
           dispatch(updateItemSuccess(updateItem))
           dispatch(clearItemForm())
           history.push(`/sellers/${updateItem.attributes.seller_id}/items/${updateItem.id}`)
+          alert("Successfully updated your item")
         }
 
 

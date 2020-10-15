@@ -8,7 +8,6 @@ const SellerItemShowCard = ({itemsList, match, history, currentSeller, viewItem,
     return (
       <Container style={ {width: "36rem"} }>
       <h1>{viewItem.attributes.name}</h1>
-      <h2>In viewItem "if" statement</h2>
       <Card>
         <Card.Img variant="top" src={viewItem.attributes.image_url} style={ {width: '100%',
                                                             height: '36rem',
@@ -20,17 +19,17 @@ const SellerItemShowCard = ({itemsList, match, history, currentSeller, viewItem,
            {viewItem.attributes.sold ? "Sold Out" : `Price: $${viewItem.attributes.price}`}
          </Card.Text>
          <Link to={`/sellers/${currentSeller.data.id}/items/${viewItem.id}/edit`}>
-           <Button variant="secondary">
+           <Button variant="info">
              Edit Item
            </Button>
          </Link>
          <Card.Link href="#">
-           <Button onClick={() => deleteItem(viewItem, history)} variant="warning">
+           <Button onClick={() => deleteItem(viewItem, history)} variant="danger">
              Delete Item
            </Button>
          </Card.Link>
          <Link to={`/sellers/${currentSeller.data.id}/items`}>
-           Back to {currentSeller.data.attributes.name}s shop
+          <Button variant="dark">Back to {currentSeller.data.attributes.name}s shop</Button>
          </Link>
        </Card.Body>
        </Card>

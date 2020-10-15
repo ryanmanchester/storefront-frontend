@@ -5,10 +5,7 @@ import { Link } from 'react-router-dom'
 import SellerItemCard from '../components/SellerItemCard'
 import { logout } from '../actions/currentSeller'
 
-const CurrentSellerItems = ({ logout, currentSeller, history, match }) => {
-  const handleOnClick = () => {
-    logout(history)
-  }
+const CurrentSellerItems = ({ currentSeller, history, match }) => {
 
   if (currentSeller && currentSeller.included.length > 0){
     return (
@@ -23,7 +20,6 @@ const CurrentSellerItems = ({ logout, currentSeller, history, match }) => {
       </div>
       <ButtonGroup>
         <Link to={`/sellers/${currentSeller.data.id}/items/new`}><Button variant="light">Sell More Items</Button></Link>
-        <Button variant="light" onClick={handleOnClick}>Log Out</Button>
       </ButtonGroup>
       </Container>
     )
@@ -34,7 +30,7 @@ const CurrentSellerItems = ({ logout, currentSeller, history, match }) => {
         <h2>Looks like you're not selling anything right now</h2>
           <ButtonGroup>
               <Link to={`/sellers/${currentSeller.data.id}/items/new`}><Button variant="light">Start Selling Items</Button></Link>
-            <Button variant="light" onClick={handleOnClick}>Log Out</Button>
+
           </ButtonGroup>
       </Container>
     )
@@ -51,4 +47,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { logout })(CurrentSellerItems)
+export default connect(mapStateToProps)(CurrentSellerItems)
