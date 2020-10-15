@@ -84,10 +84,10 @@ export const updateItem = (itemData, history) => {
         if (item.error) {
           alert(item.error)
         } else {
-          const newItem =  item.data[0]
-          dispatch(addNewItem(newItem))
+          const updateItem =  item.data[0]
+          dispatch(updateItemSuccess(updateItem))
           dispatch(clearItemForm())
-          history.push(`/sellers/${newItem.attributes.seller_id}/items/${newItem.id}`)
+          history.push(`/sellers/${updateItem.attributes.seller_id}/items/${updateItem.id}`)
         }
 
 
