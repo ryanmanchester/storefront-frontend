@@ -13,7 +13,7 @@ export default (state = initialState, action) => {
           included: newItem
         }
     case 'UPDATE_ITEM':
-      const editItem = state.included.concat(action.item)
+    const editItem = state.included.map(item => item.id === action.item.id ? action.item : item)
       return {
         ...state,
         included: editItem
