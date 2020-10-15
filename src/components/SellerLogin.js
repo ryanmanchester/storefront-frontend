@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import HomeHeader from '../styled-components/HomeHeader';
 import { updateLoginForm } from '../actions/loginForm';
 import { login } from '../actions/currentSeller';
@@ -38,7 +39,7 @@ const SellerLogin = ({ login, loginForm, updateLoginForm, history }) => {
         </Form.Group>
 
         <Button  variant="dark" type="submit">Log In</Button>
-        <p>New to StoreFront? <a href="/sellers/signup">Sign Up</a></p>
+        <p>New to StoreFront? <Link to="/sellers/signup">Sign Up</Link></p>
       </Form>
 
     </HomeHeader>

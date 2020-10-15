@@ -13,7 +13,6 @@ export default (state = initialState, action) => {
           included: newItem
         }
     case 'UPDATE_ITEM':
-      console.log("action from update item is", action.item)
       const editItem = state.included.concat(action.item)
       return {
         ...state,
