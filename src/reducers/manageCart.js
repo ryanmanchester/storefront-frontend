@@ -1,8 +1,0 @@
- const manageCart = (state = {}, action) => {
-  switch(action.type) {
-    default:
-      return state
-  }
-}
-
-export default manageCart;

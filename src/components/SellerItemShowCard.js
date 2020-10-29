@@ -3,6 +3,7 @@ import { Card, Container, Button } from 'react-bootstrap';
 import { deleteItem } from '../actions/newItems'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+
 const SellerItemShowCard = ({itemsList, match, history, currentSeller, viewItem, deleteItem }) => {
   if (itemsList && viewItem) {
     return (
