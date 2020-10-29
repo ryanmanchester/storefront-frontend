@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { Navbar, NavDropdown, Button } from 'react-bootstrap';
 import { logout } from '../actions/currentSeller';
 
- const NavigationBar = ( { currentSeller, logout, history } ) => {
+ const NavigationBar = ( { currentSeller, cart, logout, history } ) => {
 
    const handleOnClick = () => {
      logout(history)
@@ -31,7 +31,7 @@ import { logout } from '../actions/currentSeller';
         <Navbar.Collapse className="justify-content-end">
             <NavLink  to="/"><Button variant="light">Home</Button></NavLink>
             <NavLink to="/sellers/signup"><Button variant="light">Seller Portal</Button></NavLink>
-            <NavLink to="/cart"><Button variant="light">Cart</Button></NavLink>
+            <NavLink to="/cart"><Button variant="light">{`Cart(${cart.items.length})`}</Button></NavLink>
         </Navbar.Collapse>
 
       </Navbar>
@@ -42,7 +42,8 @@ import { logout } from '../actions/currentSeller';
 
 const mapStateToProps = state => {
   return {
-    currentSeller: state.currentSeller
+    currentSeller: state.currentSeller,
+    cart: state.cart
   }
 }
 
