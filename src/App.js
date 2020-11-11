@@ -12,6 +12,7 @@ import { getCurrentSeller } from './actions/currentSeller';
 import CurrentSellerItems from './components/CurrentSellerItems';
 import NewItemsFormWrapper from './components/NewItemsFormWrapper';
 import EditItemFormWrapper from './components/EditItemFormWrapper';
+import Cart from './components/Cart';
 
  class App extends Component {
 
@@ -54,6 +55,7 @@ import EditItemFormWrapper from './components/EditItemFormWrapper';
 
 
             }} />
+          <Route exact path="/cart" component={Cart} />
 
         </Switch>
 

@@ -1,15 +1,14 @@
 import React from 'react';
 import Button from '../styled-components/Button'
 import { Link } from 'react-router-dom';
+import Spinner from 'react-bootstrap/Spinner'
 
 
 
 const Categories = ({ categories }) => {
   if (categories.isLoading && !categories.list.length) {
     return (
-      <div>
-      <p>Loading...</p>
-      </div>
+      <Spinner animation="border" />
     )
   } else {
     return (
