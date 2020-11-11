@@ -1,25 +1,26 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
-import Spinner from 'react-bootstrap/Spinner'
+import { Container, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import CartCard from '../components/CartCard'
 
 const Cart = ( {cart} ) => {
   if (!cart.items.length) {
     return (
       <Container>
-        <h2>Your Cart is Empty</h2>
+        <Row className="justify-content-center">
+            <h2>Your Cart is Empty</h2>
+        </Row>
       </Container>
     )
   } else {
     let itemPrice = cart.items.map(item => item.attributes.price)
     return (
       <Container>
-        <h2>Your Cart</h2>
-        <ul>
-          {cart.items.map(item =>
-          <li>{item.attributes.name} - {item.attributes.description} </li>)}
-          </ul>
-          <p><strong>Total Price:</strong> ${itemPrice.reduce( (a,b) => a + b)} </p>
+        <Row className="justify-content-center">
+            <h2>Your Cart</h2>
+        </Row>
+        <div>{cart.items.map( item => <CartCard key={item.id} item={item} />)}</div>
+        <p><strong>Total Price: </strong>${itemPrice.reduce((a,b) => a + b )}</p>
       </Container>
     )
   }
