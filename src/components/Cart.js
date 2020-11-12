@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Button, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import CartCard from '../components/CartCard'
 
@@ -20,7 +20,13 @@ const Cart = ( {cart} ) => {
             <h2>Your Cart</h2>
         </Row>
         <div>{cart.items.map( item => <CartCard key={item.id} item={item} />)}</div>
-        <p><strong>Total Price: </strong>${itemPrice.reduce((a,b) => a + b )}</p>
+        <Row className="align-items-start">
+          <Col>
+            <p><strong>Total Price: </strong>${itemPrice.reduce((a,b) => a + b )}</p>
+            <Button variant="light">Clear Cart</Button>
+            <Button variant="info">Checkout</Button>
+          </Col>
+        </Row>
       </Container>
     )
   }

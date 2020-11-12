@@ -7,6 +7,12 @@ export default (state = { items: [] }, action) => {
         ...state,
         items: addItem
       }
+      case "REMOVE_ITEM":
+      const itemsList = state.items.filter(item => item.id !== action.item.id)
+      return {
+        ...state,
+        items: itemsList
+      }
     default:
       return state
   }
