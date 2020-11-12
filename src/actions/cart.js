@@ -11,3 +11,9 @@ export const removeItem = item => {
     item
   }
 }
+
+export const clearCart = () => {
+  return {
+    type: "CLEAR_CART"
+  }
+}

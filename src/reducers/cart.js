@@ -13,6 +13,10 @@ export default (state = { items: [] }, action) => {
         ...state,
         items: itemsList
       }
+      case "CLEAR_CART":
+      return {
+        items: []
+      }
     default:
       return state
   }

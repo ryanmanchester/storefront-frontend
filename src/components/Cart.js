@@ -1,9 +1,10 @@
 import React from 'react';
 import { Container, Row, Button, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import CartCard from '../components/CartCard'
+import CartCard from '../components/CartCard';
+import { clearCart } from '../actions/cart'
 
-const Cart = ( {cart} ) => {
+const Cart = ( {cart, clearCart} ) => {
   if (!cart.items.length) {
     return (
       <Container>
@@ -23,7 +24,7 @@ const Cart = ( {cart} ) => {
         <Row className="align-items-start">
           <Col>
             <p><strong>Total Price: </strong>${itemPrice.reduce((a,b) => a + b )}</p>
-            <Button variant="light">Clear Cart</Button>
+            <Button onClick={() => clearCart()} variant="light">Clear Cart</Button>
             <Button variant="info">Checkout</Button>
           </Col>
         </Row>
@@ -39,4 +40,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(Cart)
+export default connect(mapStateToProps, {clearCart})(Cart)
