@@ -4,6 +4,8 @@ import { Container, Button, ButtonGroup, CardColumns } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import SellerItemCard from '../components/SellerItemCard'
 import { logout } from '../actions/currentSeller'
+import Spinner from 'react-bootstrap/Spinner'
+
 
 const CurrentSellerItems = ({ currentSeller, history, match }) => {
 
@@ -36,7 +38,7 @@ const CurrentSellerItems = ({ currentSeller, history, match }) => {
     )
   } else {
     return (
-      <p>Loading...</p>
+      <Spinner animation="border" />
     )
   }
 }

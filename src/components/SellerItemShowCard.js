@@ -3,6 +3,8 @@ import { Card, Container, Button } from 'react-bootstrap';
 import { deleteItem } from '../actions/newItems'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import Spinner from 'react-bootstrap/Spinner'
+
 
 const SellerItemShowCard = ({itemsList, match, history, currentSeller, viewItem, deleteItem }) => {
   if (itemsList && viewItem) {
@@ -38,7 +40,7 @@ const SellerItemShowCard = ({itemsList, match, history, currentSeller, viewItem,
     )
   }
      else {
-      return("Loading...")
+      return (<Spinner animation="border" />)
     }
   }
 

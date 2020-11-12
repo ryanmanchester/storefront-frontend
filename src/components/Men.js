@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, CardColumns } from 'react-bootstrap';
 import ItemCard from '../components/ItemCard'
-//import Button from '../styled-components/Button';
+import Spinner from 'react-bootstrap/Spinner'
 
 
  const Men = ({ mens }) => {
@@ -10,7 +10,7 @@ import ItemCard from '../components/ItemCard'
      return (
        <Container>
          <h1>Mens Department</h1>
-         <p>Loading...</p>
+         <Spinner animation="border" />
        </Container>
      )
    } else {
