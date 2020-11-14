@@ -52,7 +52,6 @@ export const newItems = (itemData, history) => {
         dispatch(addNewItem(newItem))
         dispatch(clearItemForm())
         history.push(`/sellers/${newItem.attributes.seller_id}/items/${newItem.id}`)
-        alert(`Now selling ${newItem.name}`)
       }
 
 

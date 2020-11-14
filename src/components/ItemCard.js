@@ -5,7 +5,7 @@ import { addToCart } from '../actions/cart'
 
 const ItemCard = ({ item, addToCart }) => {
   return (
-    <Card  key={item.id}  style={{ width: '18rem' }}>
+    <Card  key={item.id}>
       <Card.Img variant="top" src={item.attributes.image_url} style={ {width: '100%',
                                                             height: '18rem',
                                                             objectFit: 'cover'} } />
