@@ -15,14 +15,12 @@ const Women = ({ womens }) => {
     )} else {
       return (
         <Container>
-          <h1>Women's Department</h1>
-          <div>
-            <CardColumns>
-          {womens.items.map(item =>
-             <ItemCard key={item.id} item={item} />
-          )}
-            </CardColumns>
-          </div>
+         <h1>Women's Department</h1>
+         <CardColumns>
+         {womens.items.map(item =>
+           <ItemCard key={item.id} item={item} />
+         )}
+       </CardColumns>
         </Container>
 
       )

@@ -20,12 +20,14 @@ const Cart = ( {cart, clearCart} ) => {
         <Row className="justify-content-center">
             <h2>Your Cart</h2>
         </Row>
+
         <div>{cart.items.map( item => <CartCard key={item.id} item={item} />)}</div>
+
         <Row className="align-items-start">
           <Col>
-            <p><strong>Total Price: </strong>${itemPrice.reduce((a,b) => a + b )}</p>
-            <Button onClick={() => clearCart()} variant="light">Clear Cart</Button>
-            <Button variant="info">Checkout</Button>
+            <p class="text-right"><strong>Total Price: </strong>${itemPrice.reduce((a,b) => a + b )}</p>
+            <Button  onClick={() => clearCart()} variant="light">Clear Cart</Button>
+            <Button className="float-right" variant="info">Checkout</Button>
           </Col>
         </Row>
       </Container>
