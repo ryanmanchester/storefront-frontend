@@ -25,7 +25,7 @@ const Cart = ( {cart, clearCart} ) => {
 
         <Row className="align-items-start">
           <Col>
-            <p class="text-right"><strong>Total Price: </strong>${itemPrice.reduce((a,b) => a + b )}</p>
+            <p className="text-right"><strong>Total Price: </strong>${itemPrice.reduce((a,b) => a + b )}</p>
             <Button  onClick={() => clearCart()} variant="light">Clear Cart</Button>
             <Button className="float-right" variant="info">Checkout</Button>
           </Col>
