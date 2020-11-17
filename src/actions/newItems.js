@@ -111,8 +111,6 @@ export const deleteItem = (itemData, history) => {
       if (msg.error){
         alert(msg.error)
       } else{
-        console.log("item data from fetch", itemData)
-        console.log("item id from fetch request is ", itemData.id)
         history.push(`/sellers/${itemData.relationships.seller.data.id}/items`)
         dispatch(deleteItemSuccess(itemData.id))
         alert(msg.message)
