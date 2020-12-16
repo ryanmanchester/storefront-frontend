@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import CartCard from '../components/CartCard';
 import { clearCart } from '../actions/cart'
 
+
 const Cart = ( {cart, clearCart} ) => {
   if (!cart.items.length) {
     return (
@@ -14,7 +15,8 @@ const Cart = ( {cart, clearCart} ) => {
       </Container>
     )
   } else {
-    let itemPrice = cart.items.map(item => item.attributes.price)
+    let itemPrice = cart.items.map(item => item.price)
+    const items = cart.items
     return (
       <Container>
         <Row className="justify-content-center">
@@ -27,7 +29,7 @@ const Cart = ( {cart, clearCart} ) => {
           <Col>
             <p className="text-right"><strong>Total Price: </strong>${itemPrice.reduce((a,b) => a + b )}</p>
             <Button  onClick={() => clearCart()} variant="light">Clear Cart</Button>
-            <Button className="float-right" variant="info">Checkout</Button>
+            <Button  className="float-right" variant="info">Checkout</Button>
           </Col>
         </Row>
       </Container>

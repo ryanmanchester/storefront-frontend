@@ -18,6 +18,12 @@ export default (state = { items: []}, action) => {
       return {
         items: [],
       }
+      case "SET_CURRENT_CART":
+      console.log(action.cart)
+      return {
+        ...state,
+        items: action.cart
+      }
     default:
       return state
   }
