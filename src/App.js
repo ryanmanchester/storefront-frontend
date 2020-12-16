@@ -9,6 +9,7 @@ import SellerSignUp from './components/SellerSignUp';
 import SellerLogin from './components/SellerLogin';
 import SellerItemShowCard from './components/SellerItemShowCard';
 import { getCurrentSeller } from './actions/currentSeller';
+import {getCurrentCart} from './actions/cart'
 import CurrentSellerItems from './components/CurrentSellerItems';
 import NewItemsFormWrapper from './components/NewItemsFormWrapper';
 import EditItemFormWrapper from './components/EditItemFormWrapper';
@@ -18,6 +19,7 @@ import Cart from './components/Cart';
 
   componentDidMount() {
     this.props.getCurrentSeller()
+    this.props.getCurrentCart()
   }
 
   render(){
@@ -71,4 +73,4 @@ const mapStateToProps = state => {
   })
 }
 
-export default withRouter(connect(mapStateToProps, { getCurrentSeller })(App))
+export default withRouter(connect(mapStateToProps, { getCurrentSeller, getCurrentCart })(App))
