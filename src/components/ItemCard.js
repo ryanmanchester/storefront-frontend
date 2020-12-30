@@ -5,7 +5,6 @@ import { addToCart } from '../actions/cart'
 
 const ItemCard = ({ item, addToCart, cart}) => {
 
-
   const disableButton = () => {
     const inCart = cart.items.find(cartItem => cartItem.id === item.id)
     if (inCart) {

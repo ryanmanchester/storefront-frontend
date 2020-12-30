@@ -3,9 +3,10 @@ import { Container, Row, Button, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import CartCard from '../components/CartCard';
 import { clearCart } from '../actions/cart'
+import { newOrder } from '../actions/order'
 
 
-const Cart = ( {cart, clearCart} ) => {
+const Cart = ( {cart, clearCart, newOrder} ) => {
   if (!cart.items.length) {
     return (
       <Container>
@@ -15,8 +16,8 @@ const Cart = ( {cart, clearCart} ) => {
       </Container>
     )
   } else {
-    let itemPrice = cart.items.map(item => item.price)
-    const items = cart.items
+    let itemPrice = cart.items.map(item => item.attributes.price)
+
     return (
       <Container>
         <Row className="justify-content-center">
@@ -29,7 +30,7 @@ const Cart = ( {cart, clearCart} ) => {
           <Col>
             <p className="text-right"><strong>Total Price: </strong>${itemPrice.reduce((a,b) => a + b )}</p>
             <Button  onClick={() => clearCart()} variant="light">Clear Cart</Button>
-            <Button  className="float-right" variant="info">Checkout</Button>
+            <Button onClick={() => newOrder(cart)}  className="float-right" variant="info">Checkout</Button>
           </Col>
         </Row>
       </Container>
@@ -44,4 +45,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {clearCart})(Cart)
+export default connect(mapStateToProps, {clearCart, newOrder})(Cart)

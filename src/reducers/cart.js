@@ -5,10 +5,11 @@ export default (state = { items: []}, action) => {
     const addItem = state.items.concat(action.item)
       return {
         ...state,
-        items: addItem,
+        items: addItem
 
       }
       case "REMOVE_ITEM":
+
       const itemsList = state.items.filter(item => item.id !== action.item.id)
       return {
         ...state,
@@ -19,7 +20,6 @@ export default (state = { items: []}, action) => {
         items: [],
       }
       case "SET_CURRENT_CART":
-      console.log(action.cart)
       return {
         ...state,
         items: action.cart
