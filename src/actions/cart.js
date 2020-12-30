@@ -19,7 +19,7 @@ export const removeItem = item => {
   }
 }
 
-export const clearCart = () => {
+export const clearCartSuccess = () => {
   return {
     type: "CLEAR_CART"
   }
@@ -37,6 +37,7 @@ export const addToCart = itemData => {
       },
       body: JSON.stringify(itemData)
     })
+
     .then(resp => resp.json())
     .then(item => {
       if(item.error){
@@ -65,5 +66,17 @@ export const getCurrentCart = () => {
         dispatch(setCurrentCart(cart))
       }
     })
+  }
+}
+
+export const clearCart = () => {
+  return dispatch => {
+    dispatch(clearCartSuccess())
+    return fetch('http://localhost:3000/api/v1/clear_cart', {
+      credentials: 'include',
+      method: 'DELETE'
+    })
+    .then(resp => resp.json())
+    .then(msg => alert(msg.message))
   }
 }
