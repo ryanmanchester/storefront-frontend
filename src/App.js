@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter, Route, Switch } from 'react-router-dom';
 import NavigationBar from './components/NavigationBar';
 import Home from './components/Home';
+import Order from './components/Order';
 import MensList from './components/MensList';
 import WomensList from './components/WomensList';
 import SellerSignUp from './components/SellerSignUp';
@@ -29,6 +30,7 @@ import Cart from './components/Cart';
 
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/order" component={Order} />
           <Route exact path="/men" component={MensList} />
           <Route exact path="/women" component={WomensList} />
           <Route exact path="/sellers/login" component={SellerLogin} />
