@@ -80,3 +80,16 @@ export const clearCart = () => {
     .then(msg => alert(msg.message))
   }
 }
+
+export const placeOrder = (history) => {
+  return dispatch => {
+    dispatch(clearCartSuccess())
+    history.push('/order')
+    return fetch('http://localhost:3000/api/v1/place_order', {
+      credentials: 'include',
+      method: 'DELETE'
+    })
+    .then(resp => resp.json())
+    .then(msg => alert(msg.message))
+  }
+}

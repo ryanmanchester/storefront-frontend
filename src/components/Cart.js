@@ -3,10 +3,10 @@ import { Container, Row, Button, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import CartCard from '../components/CartCard';
 import { clearCart } from '../actions/cart'
-import { newOrder } from '../actions/order'
+import { placeOrder } from '../actions/cart'
 
 
-const Cart = ( {cart, clearCart, newOrder} ) => {
+const Cart = ( {cart, clearCart, placeOrder, history} ) => {
   if (!cart.items.length) {
     return (
       <Container>
@@ -30,7 +30,7 @@ const Cart = ( {cart, clearCart, newOrder} ) => {
           <Col>
             <p className="text-right"><strong>Total Price: </strong>${itemPrice.reduce((a,b) => a + b )}</p>
             <Button  onClick={() => clearCart()} variant="light">Clear Cart</Button>
-            <Button onClick={() => newOrder(cart)}  className="float-right" variant="info">Checkout</Button>
+            <Button onClick={() => placeOrder(history)}  className="float-right" variant="info">Checkout</Button>
           </Col>
         </Row>
       </Container>
@@ -45,4 +45,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {clearCart, newOrder})(Cart)
+export default connect(mapStateToProps, {clearCart, placeOrder})(Cart)
