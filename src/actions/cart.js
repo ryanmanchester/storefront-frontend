@@ -12,7 +12,7 @@ export const setCurrentCart = cart => {
   }
 }
 
-export const removeItem = item => {
+export const removeItemSuccess = item => {
   return {
     type: "REMOVE_ITEM",
     item
@@ -88,6 +88,22 @@ export const placeOrder = (history) => {
     return fetch('http://localhost:3000/api/v1/place_order', {
       credentials: 'include',
       method: 'DELETE'
+    })
+    .then(resp => resp.json())
+    .then(msg => alert(msg.message))
+  }
+}
+
+export const removeItem = (item) => {
+  return dispatch => {
+    dispatch(removeItemSuccess(item))
+    return fetch('http://localhost:3000/api/v1/items/remove_item', {
+      credentials: 'include',
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(item)
     })
     .then(resp => resp.json())
     .then(msg => alert(msg.message))
