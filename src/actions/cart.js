@@ -29,7 +29,7 @@ export const clearCartSuccess = () => {
 
 export const addToCart = itemData => {
   return dispatch => {
-    fetch('http://localhost:3000/api/v1/items/add_to_cart', {
+    fetch('http://localhost:3000/api/v1/carts/add_to_cart', {
       credentials: 'include',
       method: 'POST',
       headers: {
@@ -51,7 +51,7 @@ export const addToCart = itemData => {
 
 export const getCurrentCart = () => {
   return dispatch => {
-    fetch('http://localhost:3000/api/v1/items/get_current_cart', {
+    fetch('http://localhost:3000/api/v1/carts/get_current_cart', {
       credentials: 'include',
       method: 'GET',
       headers: {
@@ -72,7 +72,7 @@ export const getCurrentCart = () => {
 export const clearCart = () => {
   return dispatch => {
     dispatch(clearCartSuccess())
-    return fetch('http://localhost:3000/api/v1/clear_cart', {
+    return fetch('http://localhost:3000/api/v1/carts/clear_cart', {
       credentials: 'include',
       method: 'DELETE'
     })
@@ -85,7 +85,7 @@ export const placeOrder = (history) => {
   return dispatch => {
     dispatch(clearCartSuccess())
     history.push('/order')
-    return fetch('http://localhost:3000/api/v1/place_order', {
+    return fetch('http://localhost:3000/api/v1/orders/place_order', {
       credentials: 'include',
       method: 'DELETE'
     })
