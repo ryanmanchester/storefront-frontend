@@ -81,7 +81,7 @@ export const clearCart = () => {
   }
 }
 
-export const placeOrder = (history) => {
+export const placeOrder = (order, history) => {
   return dispatch => {
     dispatch(clearCartSuccess())
     history.push('/order')
@@ -89,6 +89,7 @@ export const placeOrder = (history) => {
       credentials: 'include',
       method: 'DELETE'
     })
+
     .then(resp => resp.json())
     .then(msg => alert(msg.message))
   }

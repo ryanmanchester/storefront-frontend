@@ -30,7 +30,7 @@ const Cart = ( {cart, clearCart, placeOrder, history} ) => {
           <Col>
             <p className="text-right"><strong>Total Price: </strong>${itemPrice.reduce((a,b) => a + b )}</p>
             <Button  onClick={() => clearCart()} variant="light">Clear Cart</Button>
-            <Button onClick={() => placeOrder(history)}  className="float-right" variant="info">Checkout</Button>
+            <Button onClick={() => placeOrder(cart, history)}  className="float-right" variant="info">Checkout</Button>
           </Col>
         </Row>
       </Container>

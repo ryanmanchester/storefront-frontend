@@ -1,5 +1,6 @@
 
 import { combineReducers } from 'redux';
+import accessoriesReducer from './reducers/accessoriesReducer'
 import cart from './reducers/cart.js';
 import categoriesReducer from './reducers/categoriesReducer';
 import mensItemsReducer from './reducers/mensItemsReducer';
@@ -15,6 +16,7 @@ const reducer = combineReducers({
   categories: categoriesReducer,
   mens: mensItemsReducer,
   womens: womensItemsReducer,
+  accessories: accessoriesReducer,
   currentSeller,
   loginForm,
   signupForm,
