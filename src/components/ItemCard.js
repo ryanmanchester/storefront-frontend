@@ -3,29 +3,43 @@ import { Card, Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { addToCart } from '../actions/cart'
 
-const ItemCard = ({ item, addToCart, cart}) => {
+class ItemCard extends React.Component {
 
-  const disableButton = () => {
-    const inCart = cart.items.find(cartItem => cartItem.id === item.id)
+  constructor(props) {
+    super(props)
+    this.state = {isRated: false}
+  }
+   handleOnClick = () => {
+     this.setState(state => ({
+       isRated: !state.isRated
+     }))
+   }
+   disableButton = () => {
+    const inCart = this.props.cart.items.find(cartItem => cartItem.id === this.props.item.id)
     if (inCart) {
       return true
     } else {
       return false
     }
   }
+
+  render() {
     return (
-      <Card  key={item.id} style={{width : '18rem'}}>
-        <Card.Img variant="top" src={item.attributes.image_url} style={ {width: '100%',
+      <Card  key={this.props.item.id} style={{width : '18rem'}}>
+        <Card.Img variant="top" src={this.props.item.attributes.image_url} style={ {width: '100%',
                                                               height: '18rem',
                                                               objectFit: 'cover'} } />
         <Card.Body>
-         <Card.Title>{item.attributes.name}</Card.Title>
-         <Card.Subtitle>{item.attributes.sold ? "Sold Out" : `$${item.attributes.price}`}</Card.Subtitle>
-         <Button disabled={disableButton()} onClick={ () => addToCart(item) }  variant="dark">Add to Cart</Button>
+         <Card.Title>{this.props.item.attributes.name}</Card.Title>
+         <Card.Subtitle>{this.props.item.attributes.sold ? "Sold Out" : `$${this.props.item.attributes.price}`}</Card.Subtitle>
+         <Button disabled={this.disableButton()} onClick={() => this.props.addToCart(this.props.item) }  variant="dark">Add to Cart</Button>
+         <Button onClick={this.handleOnClick}>Rating: { this.state.isRated ? 1 : 0  } </Button>
        </Card.Body>
        </Card>
 
     )
+  }
+
 
 
 }
@@ -33,6 +47,7 @@ const ItemCard = ({ item, addToCart, cart}) => {
 const mapStateToProps = state => {
   return {
     cart: state.cart
+
   }
 }
 
