@@ -15,7 +15,7 @@ export const clearCurrentSeller = () => {
 //async action creators
 export const login = (creds, history) => {
   return dispatch => {
-    return fetch('http://localhost:3000/api/v1/sellers/login', {
+    return fetch('https://storefront-backend.herokuapp.com/api/v1/sellers/login', {
       credentials: 'include',
       method: 'POST',
       headers: {
@@ -41,7 +41,7 @@ export const signup = (creds, history) => {
     const sellerInfo = {
       seller: creds
     }
-    return fetch('http://localhost:3000/api/v1/sellers/signup', {
+    return fetch('https://storefront-backend.herokuapp.com/api/v1/sellers/signup', {
       credentials: 'include',
       method: 'POST',
       headers: {
@@ -65,7 +65,7 @@ export const signup = (creds, history) => {
 export const getCurrentSeller = () => {
 
   return dispatch => {
-    return fetch('http://localhost:3000/api/v1/sellers/get_current_seller', {
+    return fetch('https://storefront-backend.herokuapp.com/api/v1/sellers/get_current_seller', {
       credentials: 'include',
       method: 'GET',
       headers: {
@@ -88,7 +88,7 @@ export const logout = (history) => {
   return dispatch => {
     dispatch(clearCurrentSeller())
     history.push('/')
-    return fetch('http://localhost:3000/api/v1/sellers/logout', {
+    return fetch('https://storefront-backend.herokuapp.com/api/v1/sellers/logout', {
       credentials: 'include',
       method: 'DELETE'
     })
