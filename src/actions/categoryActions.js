@@ -11,7 +11,7 @@ export const setCategories = categories => {
 export const getCategories = () => {
   return (dispatch) => {
     dispatch({type: 'LOADING_CATEGORIES'})
-    fetch('https://storefront-backend.herokuapp.com/api/v1/categories/')
+    fetch('http://localhost:3000/api/v1/categories')
     .then(resp => resp.json())
     .then(categories =>  dispatch(setCategories(categories.data)))
   }

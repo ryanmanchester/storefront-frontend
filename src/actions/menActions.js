@@ -12,7 +12,7 @@ export const setMensItems = items => {
 export const getMensItems = () => {
   return (dispatch) => {
     dispatch({type: 'LOADING_MENS_ITEMS'})
-    fetch('https://storefront-backend.herokuapp.com/api/v1/categories/1/items')
+    fetch('http://localhost:3000/api/v1/categories/1/items')
     .then(resp => resp.json())
     .then(items => dispatch(setMensItems(items.data)))
     .catch(console.log)
