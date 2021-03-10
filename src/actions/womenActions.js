@@ -14,7 +14,7 @@ export const setWomensItems = items => {
 export const getWomensItems = () => {
   return (dispatch) => {
     dispatch({type: 'LOADING_WOMENS_ITEMS'})
-    fetch('https://storefront-backend.herokuapp.com/api/v1/categories/2/items')
+    fetch('http://localhost:3000/api/v1/categories/2/items')
     .then(resp => resp.json())
     .then(items => dispatch(setWomensItems(items.data)))
     .catch(console.log)

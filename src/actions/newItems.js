@@ -35,7 +35,7 @@ export const newItems = (itemData, history) => {
       price: itemData.price,
       image_url: itemData.imageUrl
     }
-    fetch(`https://storefront-backend.herokuapp.com/api/v1/categories/${itemData.category}/items`, {
+    fetch(`http://localhost:3000/api/v1/categories/${itemData.category}/items`, {
       credentials: 'include',
       method: 'POST',
       headers: {
@@ -70,7 +70,7 @@ export const updateItem = (itemData, history) => {
       price: itemData.price,
       image_url: itemData.imageUrl
     }
-    fetch(`https://storefront-backend.herokuapp.com/api/v1/categories/${itemData.category}/items/${itemData.itemId}`, {
+    fetch(`http://localhost:3000/api/v1/categories/${itemData.category}/items/${itemData.itemId}`, {
       credentials: 'include',
       method: 'PATCH',
       headers: {
@@ -99,7 +99,7 @@ export const updateItem = (itemData, history) => {
 
 export const deleteItem = (itemData, history) => {
   return dispatch => {
-    fetch(`https://storefront-backend.herokuapp.com/api/v1/categories/${itemData.relationships.category.data.id}/items/${itemData.id}`, {
+    fetch(`http://localhost:3000/api/v1/categories/${itemData.relationships.category.data.id}/items/${itemData.id}`, {
       credentials: 'include',
       method: 'DELETE',
       headers: {
