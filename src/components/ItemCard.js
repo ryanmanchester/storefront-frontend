@@ -33,7 +33,7 @@ class ItemCard extends React.Component {
          <Card.Title>{this.props.item.attributes.name}</Card.Title>
          <Card.Subtitle>{this.props.item.attributes.sold ? "Sold Out" : `$${this.props.item.attributes.price}`}</Card.Subtitle>
          <Button disabled={this.disableButton()} onClick={() => this.props.addToCart(this.props.item) }  variant="dark">Add to Cart</Button>
-         <Button onClick={this.handleOnClick} variant="light">Rating: { this.state.isRated ? "Liked" : " "  }  </Button>
+         <Button onClick={this.handleOnClick} variant="light">Rating: { this.state.isRated ? "👍" : " "  }  </Button>
        </Card.Body>
        </Card>
 
